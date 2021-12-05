@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" sizes="16x16" href="" />
+    <link rel="icon" sizes="152x152" href="" />
+    <link rel="icon" href="https://salaryday.co.kr/images/pd_common_favicon.ico" /> 
+    <link rel="shortcut icon" href="https://salaryday.co.kr/images/pd_common_favicon.ico">  
+    <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="Web site created using create-react-app"
+    />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DL4C8NKH8Q"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+  
+      gtag('config', 'G-DL4C8NKH8Q');
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        const agent = navigator.userAgent.toLowerCase();
+        if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1)) {
+          //console.log('Internet Explorer는 호환되지 않는 브라우저 입니다.\n');
+          var div = document.getElementById("root");
+          //div.innerHTML = "현재 브라우저는 지원하지 않습니다. Chrome, Safari, Edge, Firefox를 이용해주세요";
+       div.innerHTML = "<img src='https://salaryday.co.kr/images/ex.png' style='width:1000px; height:650px; margin:50px auto; display: block'/>"
+        }
+      });
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+  </body>
+</html>

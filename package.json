@@ -1,0 +1,74 @@
+{
+  "name": "salary-chart-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development",
+    "build": "webpack --progress --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@date-io/date-fns": "^1.0.1",
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "4.11.2",
+    "@material-ui/lab": "4.0.0-alpha.57",
+    "@material-ui/pickers": "^3.3.10",
+    "ag-grid-community": "^25.2.1",
+    "ag-grid-react": "^25.2.0",
+    "axios": "^0.21.1",
+    "css-loader": "^5.1.0",
+    "file-loader": "^6.2.0",
+    "josa-js": "0.0.2",
+    "material-ui-image": "3.3.1",
+    "moment": "2.29.1",
+    "prettier": "^2.2.1",
+    "qs": "^6.9.6",
+    "query-string": "^7.0.1",
+    "react": "^17.0.1",
+    "react-app-polyfill": "2.0.0",
+    "react-calendar": "^3.4.0",
+    "react-daum-postcode": "2.0.6",
+    "react-device-detect": "1.15.0",
+    "react-dom": "^17.0.1",
+    "react-json-viewer": "^2.1.0",
+    "react-papaparse": "3.11.1",
+    "react-responsive-carousel": "^3.2.12",
+    "react-router-dom": "^5.2.0",
+    "react-toastify": "^8.0.3",
+    "style-loader": "^2.0.0",
+    "styled-components": "^5.3.0",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^3.3.11",
+    "xlsx": "^0.17.2",
+    "xlsx-js-style": "^1.0.0",
+    "xlsx-style": "^0.8.13"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-react": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "html-webpack-plugin": "^4.5.1",
+    "rimraf": "^3.0.2",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "ie 11",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
