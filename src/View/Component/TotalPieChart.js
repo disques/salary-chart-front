@@ -52,7 +52,7 @@ export default function TotalPieChart(props) {
       <Box width="400px" height="400px" mt={3}>
         <ResponsivePie
             data={payData}
-            innerRadius={0.65}
+            innerRadius={0.60}
             margin={{ top: 20, right: 30, bottom: 50, left: 20 }}
             padAngle={0.7}
             cornerRadius={3}
@@ -103,11 +103,17 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
       textAnchor="middle"
       dominantBaseline="central"
       style={{
-        fontSize: "45px",
+        fontSize: "30px",
         fontWeight: "600"
       }}
     >
-      테스트
+      <tspan x="172" dy="-1.2em">급여</tspan>
+      <tspan x="172" dy="1.2em">구성비율</tspan>
+      <tspan x="172" dy="2.4em"  
+        style={{
+        fontSize: "15px",
+        fontWeight: "600"
+      }}>[ 단위 : 만원 ]</tspan>
     </text>
   );
 };
