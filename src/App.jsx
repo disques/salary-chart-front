@@ -3,12 +3,17 @@ import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router";
 import { ToastContainer } from "react-toastify";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 import "react-app-polyfill/ie11";
 import "react-app-polyfill/stable";
 import "react-toastify/dist/ReactToastify.css";
 
+import { useTheme, makeStyles } from "@material-ui/core/styles";
+import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { AppContextProvider } from "./AppContext";
+
+import Main from "./view/Main";
 
 const App = (props) => {
   const [login, setLogin] = useState(false);
@@ -21,12 +26,8 @@ const App = (props) => {
       userData={userData}
       setUserData={setUserData}
     >
-      <ToastContainer />
-      <HeaderProvider>
-        <TemplateProvider>
-          <Route path={["/main", "/"]} component={Main} exact={true} />
-        </TemplateProvider>
-      </HeaderProvider>
+      <CssBaseline />
+      <Main />
     </AppContextProvider>
   );
 };
