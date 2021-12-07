@@ -6,9 +6,14 @@ import { AppContext } from "../../AppContext";
 import TotalPieChart from "./TotalPieChart";
 import TotalLineChart from "./TotalLineChart";
 import PieDesc from "./PieDesc";
+import BoxTitle from "./BoxTitle";
 
 const useStyles = makeStyles((theme) => ({
-  
+  title: {
+    position: 'relative',
+    left: "20px",
+    top: "-35px"
+  },
 }));
 
 export default function TotalPayList(props) {
@@ -24,12 +29,15 @@ export default function TotalPayList(props) {
   return (
     <Box>
       <Box
-        mt={4} 
-        border={3} 
+        mt={8} 
+        border={5} 
         width="1150px" 
-        borderColor="blue"
+        borderColor="#1d3c89"
         borderRadius={5}
         >
+          <Box className={classes.title}>
+            <BoxTitle />
+          </Box>
           <Box display="flex" justifyContent="center">
             <TotalPieChart />
           </Box>

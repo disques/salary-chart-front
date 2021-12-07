@@ -4,17 +4,14 @@ import { Link as RouterLink, useHistory } from "react-router-dom";
 import { useTheme, makeStyles } from "@material-ui/core/styles";
 import { AppContext } from "../../AppContext";
 
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Bar, HorizontalBar } from "react-chartjs-2";
-import { ResponsiveSunburst } from '@nivo/sunburst'
 import { ResponsivePie } from "@nivo/pie";
-import { ResponsiveBar } from "@nivo/bar";
+
 
 const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function TotalPieChart(props) {
+export default function MonthPayPieChart(props) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
@@ -27,33 +24,33 @@ export default function TotalPieChart(props) {
   let payData = [
     {
       id: "급여",
-      value: 4800,
+      value: 850,
       color: "hsl(111, 69%, 82%)",
     },
     {
       id: "복지",
-      value: 833,
+      value: 76,
       color: "hsl(220, 70%, 50%)",
     },
     {
-      id: "싱여",
-      value: 294,
+      id: "상여",
+      value: 30,
       color: "hsl(111, 69%, 82%)",
     },
     {
-      id: "복지수당",
-      value: 1240,
+      id: "연장수당",
+      value: 131,
       color: "hsl(220, 70%, 50%)",
     },
   ];
 
   return (
     <Box>
-      <Box width="400px" height="400px" mt={3}>
+      <Box width="400px" height="400px" mt={6}>
         <ResponsivePie
             data={payData}
             innerRadius={0.60}
-            margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
+            margin={{ top: 20, right: 30, bottom: 30, left: 20 }}
             padAngle={0.7}
             cornerRadius={3}
             colors={['#5863fc', '#f9765d', '#ffc466', '#e3e4e8']}
@@ -65,22 +62,6 @@ export default function TotalPieChart(props) {
             sliceLabelsSkipAngle={10}
             sliceLabelsTextColor="#333333"
             enableArcLinkLabels={false}
-            /*
-            legends={[
-              {
-                  anchor: 'bottom',
-                  direction: 'row',
-                  justify: false,
-                  translateX: 30,
-                  translateY: 40,
-                  itemWidth: 100,
-                  itemHeight: 20,
-                  itemsSpacing: 0,
-                  symbolSize: 20,
-                  itemDirection: 'left-to-right'
-              }
-          ]}
-          */ 
           layers={[
             'arcs',
             'arcLabels',
@@ -111,6 +92,11 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
     >
       <tspan x="172" dy="-1.2em">급여</tspan>
       <tspan x="172" dy="1.2em">구성비율</tspan>
+      <tspan x="172" dy="2.4em"  
+        style={{
+        fontSize: "12px",
+        fontWeight: "600"
+      }}>2021.01 ~ 현재까지</tspan>
       <tspan x="172" dy="2.4em"  
         style={{
         fontSize: "15px",

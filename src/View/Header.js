@@ -30,12 +30,12 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
-      <AppBar position="relative" className={classes.customizeToolbar}>
+      <AppBar position="relative" className={classes.customizeToolbar} bgcolor="1d3c89">
         <Box display="flex" justifyContent="center">
           <Box 
             align="center" 
-            my={2} 
-            fontSize="18px"
+            my={4} 
+            fontSize="35px"
             color="white"
             fontWeight="700">
             안성호님의 급여내역 한눈에 보기!

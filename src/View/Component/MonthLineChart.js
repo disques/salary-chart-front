@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   
 }));
 
-export default function TotalLineChart(props) {
+export default function MonthLineChart(props) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
@@ -26,8 +26,10 @@ export default function TotalLineChart(props) {
   };
 
   const indexBy = "id";
+  let totalpaySum = 3000;
+  let paySum = 400;
 
-  const data = [
+  const inputdata = [
     { [indexBy]: "2021.01" , 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
     { [indexBy]: "2021.02", 급여: 300, 복지: 300, 상여: 500, 복지수당: 500 },
     { [indexBy]: "2021.03", 급여: 300, 복지: 200, 상여: 500, 복지수당: 500 },
@@ -40,6 +42,11 @@ export default function TotalLineChart(props) {
     { [indexBy]: "2021.10", 급여: 300, 복지: 240, 상여: 500, 복지수당: 500 },
     { [indexBy]: "2021.11", 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
     { [indexBy]: "2021.12", 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
+  ];
+
+  const data = [
+    { [indexBy]: "급여합계" , paydata: totalpaySum },
+    { [indexBy]: "기본급합계", paydata: paySum },
   ];
   
   
@@ -80,12 +87,13 @@ const TotalLabels = ({ bars, yScale }) => {
 
   return (
     <Box>
-      <Box width="1150px" height="500px" mt={3}>
+      <Box width="500px" height="500px" mt={3}>
         <ResponsiveBar
         data={data}
-        keys={["급여", "복지", "상여", "복지수당"]}
-        colors={['#5863fc', '#f9765d', '#ffc466', '#e3e4e8']}
+        keys={["paydata"]}
         indexBy={indexBy}
+        enableLabel={false}
+        colors={['#5863fc']}
         margin={{ top: 50, right: 50, bottom: 50, left: 80 }}
         padding={0.3}
         axisLeft={null}
