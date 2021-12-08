@@ -80,7 +80,7 @@ const TotalLabels = ({ bars, yScale }) => {
 
   return (
     <Box>
-      <Box width="1150px" height="500px" mt={3}>
+      <Box width="1150px" height="500px" mt={20}>
         <ResponsiveBar
         data={data}
         keys={["급여", "복지", "상여", "복지수당"]}
