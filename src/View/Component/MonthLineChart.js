@@ -89,6 +89,9 @@ const TotalLabels = ({ bars, yScale }) => {
     <Box>
       <Box width="500px" height="500px" mt={3}>
         <ResponsiveBar
+         theme={{
+          fontSize: 16,
+         }}
         data={data}
         keys={["paydata"]}
         indexBy={indexBy}

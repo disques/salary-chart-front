@@ -40,7 +40,7 @@ export default function PieDesc(props) {
 
   return (
       <Box display="flex">
-        <Box bgcolor="#1d3c89" mt={1} width="10px" height="20px" />
+        <Box bgcolor="#1d3c89" mt="5px" width="18px" height="25px" />
         <Box width="150px" ml={2}>
           <SelectFiledSet
             title="날짜"

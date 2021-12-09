@@ -24,13 +24,13 @@ export default function PieDesc(props) {
       <Box
         display="flex" justifyContent="center"
         fontSize="16px"
-        color="blue"
+        color="#1d3c89"
       >
         2020
       </Box>
       <Box
         fontSize="18px"
-        color="blue"
+        color="#1d3c89"
         fontWeight="900"
       >
         총지급액 합계

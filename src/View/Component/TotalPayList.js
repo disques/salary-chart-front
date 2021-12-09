@@ -8,6 +8,7 @@ import TotalLineChart from "./TotalLineChart";
 import PieDesc from "./PieDesc";
 import BoxTitle from "./BoxTitle";
 import SubTitle from "./SubTitle";
+import Legend from "./Legend";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
     top: "-5px",
   },
 
-  SunTitleBox: {
+  SubTitleBox: {
     position: 'relative',
     left: "-1px",
     top: "40px",
@@ -76,11 +77,14 @@ export default function TotalPayList(props) {
             <PieDesc />
           </Box>
           <Box mt={5} className={classes.boxdivider}> </Box>
-          <Box className={classes.SunTitleBox}>
+          <Box className={classes.SubTitleBox}>
             <SubTitle />
           </Box>
           <Box mb={3} display="flex" justifyContent="center">
             <TotalLineChart />
+          </Box>
+          <Box display="flex" justifyContent="center">
+            <Legend data="true" />
           </Box>
       </Box>
     </Box>

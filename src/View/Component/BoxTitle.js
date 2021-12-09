@@ -28,7 +28,7 @@ export default function BoxTitle(props) {
       bgcolor="#1d3c89"
       display="flex"
       justifyContent="center"
-      pt="5px"
+      pt="10px"
       >
       <Box color="white" fontSize="24px" fontWeight="900">
         급여 내역 한눈에 보기!

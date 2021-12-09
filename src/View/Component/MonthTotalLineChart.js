@@ -69,6 +69,9 @@ const TotalLabels = ({ bars, yScale }) => {
     <Box>
       <Box width={test()} height="400px" mt={3} mb={5}>
         <ResponsiveBar
+         theme={{
+          fontSize: 16,
+         }}
         data={data}
         keys={["급여", "복지", "상여", "복지수당"]}
         indexBy={indexBy}
@@ -76,31 +79,6 @@ const TotalLabels = ({ bars, yScale }) => {
         margin={{ top: 50, right: 50, bottom: 60, left: 80 }}
         padding={0.5}
         axisLeft={null}
-        legends={[
-          {
-              anchor: 'bottom',
-              direction: 'row',
-              justify: false,
-              translateX: 0,
-              translateY: 56,
-              itemsSpacing: 0,
-              itemWidth: 100,
-              itemHeight: 18,
-              itemTextColor: '#999',
-              itemDirection: 'left-to-right',
-              itemOpacity: 1,
-              symbolSize: 18,
-              symbolShape: 'circle',
-              effects: [
-                  {
-                      on: 'hover',
-                      style: {
-                          itemTextColor: '#000'
-                      }
-                  }
-              ]
-          }
-      ]}
         // add TotalLabels after bars
         layers={["axes", "bars", TotalLabels, "markers", "legends"]}
         />

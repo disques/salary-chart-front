@@ -48,6 +48,9 @@ export default function MonthPayPieChart(props) {
     <Box>
       <Box width="400px" height="400px" mt={6}>
         <ResponsivePie
+            theme={{
+              fontSize: 16,
+            }}
             data={payData}
             innerRadius={0.60}
             margin={{ top: 20, right: 30, bottom: 30, left: 20 }}

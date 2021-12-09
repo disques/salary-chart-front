@@ -11,7 +11,9 @@ import { ResponsivePie } from "@nivo/pie";
 import { ResponsiveBar } from "@nivo/bar";
 
 const useStyles = makeStyles((theme) => ({
-  
+  title: {
+    fontColor: "#1d3c89",
+  },
 }));
 
 export default function TotalPieChart(props) {
@@ -51,6 +53,9 @@ export default function TotalPieChart(props) {
     <Box>
       <Box width="400px" height="400px" mt={3}>
         <ResponsivePie
+            theme={{
+              fontSize: 16,
+            }}
             data={payData}
             innerRadius={0.60}
             margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
@@ -59,6 +64,8 @@ export default function TotalPieChart(props) {
             colors={['#5863fc', '#f9765d', '#ffc466', '#e3e4e8']}
             borderWidth={1}
             borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
+            enableArcLinkLabels={true}
+            arcLinkLabel="value"
             radialLabelsSkipAngle={10}
             radialLabelsTextColor="#333333"
             radialLabelsLinkColor={{ from: "color" }}
@@ -97,6 +104,8 @@ export default function TotalPieChart(props) {
 
 
 const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
+  const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <text
@@ -106,15 +115,15 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
       dominantBaseline="central"
       style={{
         fontSize: "30px",
-        fontWeight: "600"
+        fontWeight: "800",
       }}
     >
-      <tspan x="172" dy="-1.2em">급여</tspan>
-      <tspan x="172" dy="1.2em">구성비율</tspan>
-      <tspan x="172" dy="2.4em"  
+      <tspan x="172" dy="-1.2em" fill="#1d3c89">급여</tspan>
+      <tspan x="172" dy="1.2em" fill="#1d3c89">구성비율</tspan>
+      <tspan x="172" dy="2.4em" fill="#1d3c89"  
         style={{
-        fontSize: "15px",
-        fontWeight: "600"
+        fontSize: "18px",
+        fontWeight: "600",
       }}>[ 단위 : 만원 ]</tspan>
     </text>
   );
