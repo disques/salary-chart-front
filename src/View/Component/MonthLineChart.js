@@ -52,7 +52,7 @@ export default function MonthLineChart(props) {
   
 const TotalLabels = ({ bars, yScale }) => {
   // space between top of stacked bars and total label
-  const labelMargin = 20;
+  const labelMargin = 60;
 
   return bars.map(({ data: { data, indexValue }, x, width }, i) => {
     // sum of all the bar values in a stacked bar
@@ -75,10 +75,12 @@ const TotalLabels = ({ bars, yScale }) => {
           alignmentBaseline="central"
           // add any style to the label here
           style={{
-            fill: "rgb(51, 51, 51)"
+            fill: "#1d3c89",
+            fontSize: "25px",
+            fontWeight: "800",
           }}
         >
-          {total}
+          {total}만원
         </text>
       </g>
     );
@@ -97,7 +99,7 @@ const TotalLabels = ({ bars, yScale }) => {
         indexBy={indexBy}
         enableLabel={false}
         colors={['#5863fc']}
-        margin={{ top: 50, right: 50, bottom: 50, left: 80 }}
+        margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
         padding={0.3}
         axisLeft={null}
         // add TotalLabels after bars

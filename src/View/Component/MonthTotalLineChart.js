@@ -32,7 +32,7 @@ export default function MonthTotalLineChart(props) {
   
 const TotalLabels = ({ bars, yScale }) => {
   // space between top of stacked bars and total label
-  const labelMargin = 20;
+  const labelMargin = 40;
 
   return bars.map(({ data: { data, indexValue }, x, width }, i) => {
     // sum of all the bar values in a stacked bar
@@ -55,10 +55,11 @@ const TotalLabels = ({ bars, yScale }) => {
           alignmentBaseline="central"
           // add any style to the label here
           style={{
-            fill: "rgb(51, 51, 51)"
+            fill: "#1d3c89",
+            fontSize: "16px",
           }}
         >
-          {total}
+          {total}000원
         </text>
       </g>
     );
@@ -75,8 +76,9 @@ const TotalLabels = ({ bars, yScale }) => {
         data={data}
         keys={["급여", "복지", "상여", "복지수당"]}
         indexBy={indexBy}
-        colors={['#5863fc', '#f9765d', '#ffc466', '#e3e4e8']}
-        margin={{ top: 50, right: 50, bottom: 60, left: 80 }}
+        colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
+        margin={{ top: 50, right: 50, bottom: 60, left: 50 }}
+        labelTextColor="#f4f0f0"
         padding={0.5}
         axisLeft={null}
         // add TotalLabels after bars

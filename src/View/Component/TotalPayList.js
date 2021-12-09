@@ -19,9 +19,9 @@ const useStyles = makeStyles((theme) => ({
   },
 
   selectListBox: {
-    position: 'relative',
+    position: 'absolute',
     left: "-1px",
-    top: "-5px",
+    top: "50px",
   },
 
   SubTitleBox: {
@@ -43,7 +43,14 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: "22px",
     height: "1px",
     width: "100%",
-  }
+  },
+
+  legendBox: {
+    position: 'absolute',
+    left: "30px",
+    top: "120px",
+  },
+
 }));
 
 export default function TotalPayList(props) {
@@ -60,14 +67,19 @@ export default function TotalPayList(props) {
         width="1150px" 
         borderColor="#1d3c89"
         borderRadius={5}
+        component="div"
+        position="relative"
         >
           <Box className={classes.title}>
             <BoxTitle />
           </Box>
           <Box className={classes.selectListBox}>
-            <SubTitle />
+            <SubTitle kind="select"/>
           </Box>
-          <Box display="flex" justifyContent="center">
+          <Box className={classes.legendBox}>
+            <Legend />
+          </Box>
+          <Box display="flex" justifyContent="center" className={classes.pieBox}>
             <TotalPieChart />
           </Box>
           <Box mt={3} width="1000px" margin="auto">
@@ -78,7 +90,7 @@ export default function TotalPayList(props) {
           </Box>
           <Box mt={5} className={classes.boxdivider}> </Box>
           <Box className={classes.SubTitleBox}>
-            <SubTitle />
+            <SubTitle kind="text" yearTitle="2020"/>
           </Box>
           <Box mb={3} display="flex" justifyContent="center">
             <TotalLineChart />

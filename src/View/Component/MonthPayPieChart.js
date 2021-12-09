@@ -56,9 +56,10 @@ export default function MonthPayPieChart(props) {
             margin={{ top: 20, right: 30, bottom: 30, left: 20 }}
             padAngle={0.7}
             cornerRadius={3}
-            colors={['#5863fc', '#f9765d', '#ffc466', '#e3e4e8']}
+            colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
             borderWidth={1}
             borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
+            arcLabelsTextColor="#ffffff"
             radialLabelsSkipAngle={10}
             radialLabelsTextColor="#333333"
             radialLabelsLinkColor={{ from: "color" }}
@@ -93,17 +94,19 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
         fontWeight: "600"
       }}
     >
-      <tspan x="172" dy="-1.2em">급여</tspan>
-      <tspan x="172" dy="1.2em">구성비율</tspan>
+      <tspan x="172" dy="-1.8em" fill="#1d3c89">급여</tspan>
+      <tspan x="172" dy="1.2em" fill="#1d3c89">구성비율</tspan>
       <tspan x="172" dy="2.4em"  
         style={{
         fontSize: "12px",
-        fontWeight: "600"
+        fontWeight: "600",
+        fill: "#1d3c89"
       }}>2021.01 ~ 현재까지</tspan>
       <tspan x="172" dy="2.4em"  
         style={{
         fontSize: "15px",
-        fontWeight: "600"
+        fontWeight: "600",
+        fill: "#5863fc"
       }}>[ 단위 : 만원 ]</tspan>
     </text>
   );

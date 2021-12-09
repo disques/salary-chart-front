@@ -15,7 +15,9 @@ import { AppContext } from "../AppContext";
 
 
 const useStyles = makeStyles((theme) => ({
-  
+  abRoot: {
+    backgroundColor: "#1d3c89"
+  },
 }));
 
 export default function Header(props) {
@@ -30,7 +32,12 @@ export default function Header(props) {
 
   return (
     <React.Fragment>
-      <AppBar position="relative" className={classes.customizeToolbar} bgcolor="1d3c89">
+      <AppBar 
+        position="relative" 
+        classes={{ 
+          root: classes.abRoot, 
+        }}
+        >
         <Box display="flex" justifyContent="center">
           <Box 
             align="center" 

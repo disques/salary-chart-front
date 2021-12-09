@@ -31,7 +31,7 @@ export default function PieDesc(props) {
       <Box
         fontSize="18px"
         color="#1d3c89"
-        fontWeight="900"
+        fontWeight="bold"
       >
         총지급액 합계
       </Box>

@@ -55,7 +55,7 @@ export default function Legend(props) {
           </Box>
         </Box>
         <Box display="flex" ml={4}>
-          <Box mt="2px" width="20px" height="20px" bgcolor="#e3e4e8"/>
+          <Box mt="2px" width="20px" height="20px" bgcolor="#929292"/>
           <Box 
             ml={2}
             fontSize="18px"
@@ -98,7 +98,7 @@ export default function Legend(props) {
          </Box>
        </Box>
        <Box display="flex" mt={2}>
-         <Box mt="2px" width="20px" height="20px" bgcolor="#e3e4e8"/>
+         <Box mt="2px" width="20px" height="20px" bgcolor="#929292"/>
          <Box 
            ml={2}
            fontSize="18px"

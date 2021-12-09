@@ -88,7 +88,8 @@ const TotalLabels = ({ bars, yScale }) => {
          }}
           data={data}
           keys={["급여", "복지", "상여", "복지수당"]}
-          colors={['#5863fc', '#f9765d', '#ffc466', '#e3e4e8']}
+          colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
+          labelTextColor="#f4f0f0"
           indexBy={indexBy}
           margin={{ top: 50, right: 20, bottom: 50, left: 20 }}
           padding={0.4}
