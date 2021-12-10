@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
   footer: {
     position: "relative",
   },
+  test: {
+    fontSize: "40px",
+    fontFamily: "Spoqa Han Sans Neo Medium"
+  }
 }));
 
 const Main = () => {

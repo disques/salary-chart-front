@@ -13,6 +13,7 @@ import { useTheme, makeStyles } from "@material-ui/core/styles";
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { AppContextProvider } from "./AppContext";
 
+import "./App.css";
 import Main from "./view/Main";
 
 const App = (props) => {

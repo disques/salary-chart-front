@@ -30,6 +30,7 @@ export default function Legend(props) {
             ml={2}
             fontSize="18px"
             color="#1d3c89"
+            fontFamily= "Spoqa Han Sans Neo Bold"
           >
             급여
           </Box>
