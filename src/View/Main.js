@@ -4,6 +4,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { AppContext } from "../AppContext";
 import Header from "./Header";
 import MainComponent from "./Component/MainComponent";
+import MainChart from "./Pay_Chart/MainChart";
 import {
   Box,
   Button,
@@ -44,6 +45,7 @@ const Main = () => {
       <main className={classes.body}>
         <Switch>
           <Route exact path="/" component={MainComponent} />
+          <Route exact path="/paychart" component={MainChart} />
         </Switch>
       </main>
     </Box>

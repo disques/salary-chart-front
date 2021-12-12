@@ -67,7 +67,6 @@ export default function TotalPayList(props) {
         width="1150px" 
         borderColor="#1d3c89"
         borderRadius={5}
-        component="div"
         position="relative"
         >
           <Box className={classes.title}>
