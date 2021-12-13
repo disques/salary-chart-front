@@ -104,7 +104,7 @@ function Label(props) {
     <Box py={8} width="900px" height="200px" bgcolor="#FCF4DD" display="flex" justifyContent="center">
       <Box>
         <Box fontSize={40} align="left" fontWeight={800} color="#7a4a7a">
-          9000명
+          9700명
         </Box>
         <Box fontSize={15} fontWeight={800} color="#7a4a7a">
           누적 가입자수

@@ -97,7 +97,7 @@ function Label(props) {
           9000명
         </Box>
         <Box fontSize={15} fontWeight={800} color="#7a4a7a">
-          총 수진 근로자 수
+          총 누적 근로자 수
         </Box>
       </Box>
       <Box>
@@ -123,7 +123,7 @@ function Label(props) {
           </Box>  
         </Box>
         <Box fontSize={15} fontWeight={800} color="#7a4a7a">
-          마수신 근로자수(최근한달)
+          미수신 근로자수(최근한달)
         </Box>
       </Box>
     </Box>

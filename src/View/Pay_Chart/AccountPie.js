@@ -139,11 +139,11 @@ function Label(props) {
   return (
     <Box mt={10} width="400px" height="400px">
       <Box display="flex" justifyContent="center">
-        <LabelItem color="#e8c1a0" decsTitle="회사수" data1="20" data2="10"/>
-        <LabelItem color="#f47560" decsTitle="활성화 회사" data1="20" data2="10"/>
+        <LabelItem color="#e8c1a0" decsTitle="회사수" data1="100" data2="100"/>
+        <LabelItem color="#f47560" decsTitle="활성화 회사" data1="80" data2="80"/>
       </Box>
       <Box mt={5}>
-        <LabelItem color="#f1e15b" decsTitle="비활성화 회사" data1="20" data2="10"/>
+        <LabelItem color="#f1e15b" decsTitle="비활성화 회사" data1="20" data2="20"/>
       </Box>
       <Box mt={4} align="left">
         * 검색일 기준 ,최근 45일 동안 1회이상 발송이력이 있으면 활성
@@ -161,9 +161,14 @@ function LabelItem(props) {
       <Box mt={2} fontSize="24px" color="#474747">
         {props.decsTitle}
       </Box>
-      <Box fontSize="32px" fontWeight="600" color="#474747">
-        {props.data1}개 ({props.data2}%)
-      </Box>
+      <Box display="flex">
+        <Box fontSize="32px" fontWeight="600" color="#474747">
+          {props.data1}개
+        </Box>
+        <Box pt={1} fontSize="24px" fontWeight="600" color="#474747">
+         ({props.data2}%)
+        </Box>
+      </Box>   
     </Box>
     
   );

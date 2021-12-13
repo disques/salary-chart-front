@@ -23,37 +23,37 @@ let sendData = {
         {
           "name": "월 10건 이하",
           "color": "hsl(108, 70%, 50%)",
-          "value": 50
+          "value": 40
         },
         {
           "name": "월 10건 ~ 50건 이하",
           "color": "hsl(295, 70%, 50%)",
-          "value": 40
+          "value": 50
         },
         {
           "name": "월 100건 ~ 200건 이하",
           "color": "hsl(295, 70%, 50%)",
-          "value": 40
+          "value": 70
         },
         {
           "name": "월 200건 ~ 300건 이하",
           "color": "hsl(295, 70%, 50%)",
-          "value": 40
+          "value": 70
         },
         {
           "name": "월 300건 ~ 400건 이하",
           "color": "hsl(295, 70%, 50%)",
-          "value": 40
+          "value": 60
         },
         {
           "name": "월 400건 ~ 500건 이하",
           "color": "hsl(295, 70%, 50%)",
-          "value": 40
+          "value": 80
         },
         {
           "name": "월500건 이상",
           "color": "hsl(295, 70%, 50%)",
-          "value": 40
+          "value": 100
         },
       ]
     }
@@ -84,7 +84,7 @@ export default function SendTotal_Pie(props) {
           margin={{ top: 10, right: 10, bottom: 10, left: 0 }}
           id="name"
           value="value"
-          colors={{ scheme: 'set2' }}
+          colors={{ scheme: 'set3' }}
           cornerRadius={2}
           borderColor={{ theme: 'background' }}
           borderWidth={1}
@@ -169,16 +169,16 @@ function Label(props) {
   return (
     <Box mt={8} width="400px" height="400px">
       <Box display="flex" justifyContent="center">
-        <LabelItem color="#e8c1a0" decsTitle="총발성건수" data1="20" data2="10"/>
-        <LabelItem color="#f47560" decsTitle="10건이하" data1="20" data2="10"/>
-        <LabelItem color="#e8c1a0" decsTitle="10~50건" data1="20" data2="10"/>
-        <LabelItem color="#f47560" decsTitle="100~200건" data1="20" data2="10"/>
+        <LabelItem color="#fccde5" decsTitle="총발성건수" data1="470" data2="100"/>
+        <LabelItem color="#b3de69" decsTitle="10건이하" data1="40" data2="8.51"/>
+        <LabelItem color="#fdb462" decsTitle="10~50건" data1="50" data2="10.64"/>
+        <LabelItem color="#80b1d3" decsTitle="100~200건" data1="70" data2="14.89"/>
       </Box>
       <Box mt={5} display="flex" justifyContent="center">
-        <LabelItem color="#e8c1a0" decsTitle="200~300건" data1="20" data2="10"/>
-        <LabelItem color="#f47560" decsTitle="300~400건" data1="20" data2="10"/>
-        <LabelItem color="#e8c1a0" decsTitle="400~500건" data1="20" data2="10"/>
-        <LabelItem color="#f47560" decsTitle="500건이상" data1="20" data2="10"/>
+        <LabelItem color="#fb8072" decsTitle="200~300건" data1="70" data2="14.89"/>
+        <LabelItem color="#bebada" decsTitle="300~400건" data1="60" data2="12.77"/>
+        <LabelItem color="#ffffb3" decsTitle="400~500건" data1="80" data2="17.02"/>
+        <LabelItem color="#8dd3c7" decsTitle="500건이상" data1="100" data2="21.28"/>
       </Box>
       <Box mt={4} align="left">
         * 활성화 계정에서 1회라도 발송한 기업 중, 모든 발송 포함
