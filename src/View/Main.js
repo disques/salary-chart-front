@@ -5,6 +5,7 @@ import { AppContext } from "../AppContext";
 import Header from "./Header";
 import MainComponent from "./Component/MainComponent";
 import MainChart from "./Pay_Chart/MainChart";
+import Pdf_Print from "./Pay_Chart/Component_Test/Pdf_Print";
 import {
   Box,
   Button,
@@ -46,6 +47,7 @@ const Main = () => {
         <Switch>
           <Route exact path="/" component={MainComponent} />
           <Route exact path="/paychart" component={MainChart} />
+          <Route exact path="/test" component={Pdf_Print} />
         </Switch>
       </main>
     </Box>

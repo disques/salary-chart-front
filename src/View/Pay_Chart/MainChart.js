@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext, useEffect, useRef } from "react";
 import {  
   Typography,
   Box,
@@ -15,22 +15,23 @@ import SendTotal_Pie from "./SendTotal_Pie";
 import JoinLineChart from "./JoinLineChart";
 import SendLine_Chart from "./SendLine_Chart";
 import Title from "./Title"
-
-
+//import Printer, { print } from 'react-pdf-print'
+import ReactToPrint from 'react-to-print';  //특정컴포넌트 인쇄
+import { Page, Text, View, Document, StyleSheet, ReactPDF, PDFDownloadLink } from '@react-pdf/renderer';  //특정컴포넌트 pdf
 
 export default function MainChart(props) {
   const [name, setName] = useState("");
-
-  const handleName = () => {
-    console.log("안에")
-  };
+  const componentRef = useRef(null);
+  
 
   useEffect(() => {
     
   }, []);
 
+
   return (
     <Box margin={3} ml={3} align="center">
+      <div ref={componentRef}>
       <Box>
         <Box y={5} align="left">
           <Title title="핸드폰 등록 계정 수" />
@@ -47,6 +48,8 @@ export default function MainChart(props) {
           <AccountPie />
         </Box>
       </Box>
+      </div>
+      
       <Box mt={8}>
         <Box y={5} align="left">
           <Title title="이용 회사(그룹) 수" />
@@ -104,7 +107,42 @@ export default function MainChart(props) {
       <Box mt={10}>
         <SendLine_Chart />
       </Box>
+      <Box>
+      </Box>
+      <div>
+        <ReactToPrint
+         trigger={() => <button>프린트하기</button>}
+         content={() => componentRef.current} />
+        
+      </div>
+      <div className="App">
+      <PDFDownloadLink document={<MyDoc />} fileName="somename.pdf">
+        {({ blob, url, loading, error }) => (loading ? '로딩중' : 'PDF내려받기')}
+      </PDFDownloadLink>
+    </div>
     </Box>
   );
 }
 
+ const MyDoc = props => (
+  <Document>
+    <Page size="A4">
+      <View>
+        <Text>Section #1 </Text>
+      </View>
+      <View>
+        <Text>Section #2</Text>
+      </View>
+    </Page>
+    {/* 
+     {rowData.map((row,index) => 
+            <Page size="A4" style={styles.page} key={index}>
+                <View style={styles.section}>
+                    <Text>Name: {row.FULLNAME}</Text>
+                </View>
+      </Page>
+    )}
+    */}
+   
+  </Document>
+);
