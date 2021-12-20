@@ -14,7 +14,7 @@ import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import { AppContextProvider } from "./AppContext";
 
 import "./App.css";
-import Main from "./view/Main";
+import Main from "./View/Main";
 
 const App = (props) => {
   const [login, setLogin] = useState(false);
