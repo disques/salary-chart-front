@@ -15,6 +15,7 @@ import SendTotal_Pie from "./SendTotal_Pie";
 import JoinLineChart from "./JoinLineChart";
 import SendLine_Chart from "./SendLine_Chart";
 import Title from "./Title"
+import SignPadDialog from "./Dialog/SignPadDialog";
 //import Printer, { print } from 'react-pdf-print'
 import ReactToPrint from 'react-to-print';  //특정컴포넌트 인쇄
 import { Page, Text, View, Document, StyleSheet, ReactPDF, PDFDownloadLink } from '@react-pdf/renderer';  //특정컴포넌트 pdf
@@ -22,6 +23,7 @@ import { Page, Text, View, Document, StyleSheet, ReactPDF, PDFDownloadLink } fro
 export default function MainChart(props) {
   const [name, setName] = useState("");
   const componentRef = useRef(null);
+  const [ShowModal, setShowModal] = useState(false);
   
 
   useEffect(() => {
@@ -31,6 +33,13 @@ export default function MainChart(props) {
 
   return (
     <Box margin={3} ml={3} align="center">
+      <SignPadDialog open={ShowModal} setOpen={setShowModal} />
+      <button
+        onClick={() => {
+          setShowModal(true);
+        }}>
+        서명확인
+      </button>
       <div ref={componentRef}>
       <Box>
         <Box y={5} align="left">
@@ -143,6 +152,5 @@ export default function MainChart(props) {
       </Page>
     )}
     */}
-   
   </Document>
 );
