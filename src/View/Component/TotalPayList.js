@@ -89,7 +89,7 @@ export default function TotalPayList(props) {
           </Box>
           <Box mt={5} className={classes.boxdivider}> </Box>
           <Box className={classes.SubTitleBox}>
-            <SubTitle kind="text" yearTitle="2020"/>
+            <SubTitle kind="text" yearTitle="2021"/>
           </Box>
           <Box mb={3} display="flex" justifyContent="center">
             <TotalLineChart />

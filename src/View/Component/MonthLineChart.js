@@ -80,7 +80,7 @@ const TotalLabels = ({ bars, yScale }) => {
             fontWeight: "800",
           }}
         >
-          {total}만원
+          {total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}만원
         </text>
       </g>
     );

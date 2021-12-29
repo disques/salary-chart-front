@@ -107,7 +107,7 @@ export default function MonthPayList(props) {
         </Box>
         <Box className={classes.boxdivider}> </Box>
         <Box className={classes.SubTitleBox}>
-          <SubTitle kind="text" yearTitle="2020"/>
+          <SubTitle kind="text" yearTitle="2021"/>
         </Box>
         <Box display="flex" justifyContent="center">
             <MonthTotalLineChart />

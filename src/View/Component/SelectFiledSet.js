@@ -27,7 +27,6 @@ const SelectFiledSet = (props) => {
   const { title, required, inputWidth, SelectData, ...other } = props;
   const [menu, setmenu] = useState(props.current);
 
- 
 
   const handleChange = (event) => {
     console.log(event.target.value);
@@ -63,14 +62,14 @@ const SelectFiledSet = (props) => {
             }
           }}
         >
-           {props.selectDatas.map((selectData) => (
+          {props.selectDatas.map((selectData) => (
             <MenuItem 
-            classes={{
-              root: classes.menuRoot,
-             }}
-             key={selectData.title} 
-             value={selectData.key}
-             >
+              classes={{
+                root: classes.menuRoot,
+              }}
+              key={selectData.title} 
+              value={selectData.key}
+            >
               {selectData.title}
             </MenuItem>
           ))}

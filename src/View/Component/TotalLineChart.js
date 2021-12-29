@@ -72,7 +72,7 @@ const TotalLabels = ({ bars, yScale }) => {
             fontSize: "14px",
           }}
         >
-          {total}0000 원
+          {total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}만원
         </text>
       </g>
     );
@@ -83,9 +83,9 @@ const TotalLabels = ({ bars, yScale }) => {
     <Box>
       <Box width="1150px" height="500px" mt={20}>
         <ResponsiveBar
-         theme={{
+          theme={{
           fontSize: 16,
-         }}
+          }}
           data={data}
           keys={["급여", "복지", "상여", "복지수당"]}
           colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
