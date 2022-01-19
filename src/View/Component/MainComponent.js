@@ -22,8 +22,8 @@ export default function MainComponent(props) {
 
   return (
     <Box>
-     <TotalPayList />
-     <MonthPayList />
+      <TotalPayList />
+      <MonthPayList />
     </Box>
   );
 }

@@ -14,30 +14,17 @@ export default function SubTitle(props) {
   const theme = useTheme();
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
-
+  let date = new Date();
   const selectDatas = [
-    { title: "2018", key: "0" },
-    { title: "2019", key: "1" },
-    { title: "2020", key: "2" },
-    { title: "2021", key: "3" },
+    { title: date.getFullYear().toString(), key: date.getFullYear().toString() },
+    { title: (date.getFullYear() - 1).toString(), key: (date.getFullYear() - 1).toString() },
+    { title: (date.getFullYear() - 2).toString(), key: (date.getFullYear() - 2).toString() },
+    { title: (date.getFullYear() - 3).toString(), key: (date.getFullYear() - 3).toString() },
   ];
 
-  /*
-  let selectDatas6 = managerList.map((data, index) => ({
-    title: data.adminName,
-    key: ++index,
-  }));
- */
   const handleChangeYearList = (data) => {
-    console.log(data);
-    /*
-    let index = --data.target.value;
-    setTxtManager(managerList[index].adminSabun);*/
+    props.handleChangeYearList(data);
   }; 
-  console.log(props);
-  const handleClick = (event) => {
-    
-  };
   
   return (
       <Box display="flex">
@@ -48,7 +35,7 @@ export default function SubTitle(props) {
             title="날짜"
             name="txtManager"
             selectDatas={selectDatas}
-            handleChange={handleChangeYearList}
+            handleChangeYearList={handleChangeYearList}
                 />
           </Box> :
           <Box>
@@ -58,14 +45,13 @@ export default function SubTitle(props) {
               color="#1d3c89"
               fontWeight="900"
             >
-             {`${props.yearTitle}년 월별 급여내역`}
+              {`${props.titleYear}년 월별 급여내역`}
             </Box>
             <Box ml={2} mt={1} color="#1d3c89">
               [ 단위 : 만원 ]
             </Box>
           </Box>
           }
-       
       </Box>
   );
 }

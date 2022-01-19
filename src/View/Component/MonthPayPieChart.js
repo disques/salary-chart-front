@@ -15,32 +15,35 @@ export default function MonthPayPieChart(props) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
-  const { login, setLogin } = useContext(AppContext);
 
-  const handleClick = (event) => {
-    
-  };
+  let totalPay = 0; //급여
+  let totalBokji = 0; //복지
+  let totalSangyeo = 0; //상여
+  let totalSudang = 0; //복지수당
+
+  props.data.map((data)=> {
+    totalPay = totalPay + data.급여;
+    totalBokji = totalBokji + data.복지;
+    totalSangyeo = totalSangyeo + data.상여;
+    totalSudang = totalSudang + data.복지수당;
+  })
 
   let payData = [
     {
       id: "급여",
-      value: 850,
-      color: "hsl(111, 69%, 82%)",
+      value: totalPay,
     },
     {
       id: "복지",
-      value: 76,
-      color: "hsl(220, 70%, 50%)",
+      value: totalBokji,
     },
     {
-      id: "상여",
-      value: 30,
-      color: "hsl(111, 69%, 82%)",
+      id: "싱여",
+      value: totalSangyeo,
     },
     {
-      id: "연장수당",
-      value: 131,
-      color: "hsl(220, 70%, 50%)",
+      id: "복지수당",
+      value: totalSudang,
     },
   ];
 
@@ -56,7 +59,7 @@ export default function MonthPayPieChart(props) {
             margin={{ top: 20, right: 30, bottom: 30, left: 20 }}
             padAngle={0.7}
             cornerRadius={3}
-            colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
+            colors={['#5863fc', '#f9765d', '#ffc466', '#BCBFC9']}
             borderWidth={1}
             borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
             arcLabelsTextColor="#ffffff"

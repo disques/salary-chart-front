@@ -3,11 +3,6 @@ import { Box, Button, Typography } from "@material-ui/core";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import { useTheme, makeStyles } from "@material-ui/core/styles";
 import { AppContext } from "../../AppContext";
-
-import ChartDataLabels from 'chartjs-plugin-datalabels';
-import { Bar, HorizontalBar } from "react-chartjs-2";
-import { ResponsiveSunburst } from '@nivo/sunburst'
-import { ResponsivePie } from "@nivo/pie";
 import { ResponsiveBar } from "@nivo/bar";
 
 
@@ -20,28 +15,24 @@ export default function TotalLineChart(props) {
   const theme = useTheme();
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
+  const {data} = props;
 
-  const handleClick = (event) => {
-    
+  const itemWidth = () => {
+    switch (data.length) 
+    { 
+      case 1 && 2:
+        return "500px";
+        break;
+      case 11 && 12:
+        return "1150px";
+        break;
+      default:
+        return "800px";
+        break;
+    }
   };
 
-  const indexBy = "id";
-
-  const data = [
-    { [indexBy]: "2021.01" , 급여: 500, 복지: 40, 상여: null, 복지수당: 80 },
-    { [indexBy]: "2021.02", 급여: 500, 복지: 30, 상여: null, 복지수당: 83 },
-    { [indexBy]: "2021.03", 급여: 500, 복지: 20, 상여: null, 복지수당: 50 },
-    { [indexBy]: "2021.04", 급여: 500, 복지: 50, 상여: null, 복지수당: 70 },
-    { [indexBy]: "2021.05" , 급여: 500, 복지: 30, 상여: 50, 복지수당: 60 },
-    { [indexBy]: "2021.06", 급여: 500, 복지: 20, 상여: 50, 복지수당: 80 },
-    { [indexBy]: "2021.07", 급여: 500, 복지: 30, 상여: 50, 복지수당: 80 },
-    { [indexBy]: "2021.08", 급여: 500, 복지: 20, 상여: 50, 복지수당: 70 },
-    { [indexBy]: "2021.09" , 급여: 500, 복지: 40, 상여: 50, 복지수당: 60 },
-    { [indexBy]: "2021.10", 급여: 500, 복지: 24, 상여: 50, 복지수당: 50 },
-    { [indexBy]: "2021.11", 급여: 500, 복지: 40, 상여: 50, 복지수당: 80 },
-    { [indexBy]: "2021.12", 급여: 500, 복지: 40, 상여: 50, 복지수당: 80 },
-  ];
-  
+  //const indexBy = "id";
   
 const TotalLabels = ({ bars, yScale }) => {
   // space between top of stacked bars and total label
@@ -51,7 +42,7 @@ const TotalLabels = ({ bars, yScale }) => {
     // sum of all the bar values in a stacked bar
     const total = Object.keys(data)
       //f ilter out whatever your indexBy value is
-      .filter(key => key !== indexBy)
+      .filter(key => key !== "id")
       .reduce((a, key) => a + data[key], 0);
 
     return (
@@ -81,16 +72,16 @@ const TotalLabels = ({ bars, yScale }) => {
 
   return (
     <Box>
-      <Box width="1150px" height="500px" mt={20}>
+      <Box width={itemWidth()} height="500px" mt={20}>
         <ResponsiveBar
           theme={{
           fontSize: 16,
           }}
           data={data}
           keys={["급여", "복지", "상여", "복지수당"]}
-          colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
+          colors={['#5863fc', '#f9765d', '#ffc466', '#BCBFC9']}
           labelTextColor="#f4f0f0"
-          indexBy={indexBy}
+          indexBy="id"
           margin={{ top: 50, right: 20, bottom: 50, left: 20 }}
           padding={0.4}
           axisLeft={null}

@@ -21,34 +21,25 @@ export default function MonthLineChart(props) {
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
 
-  const handleClick = (event) => {
-    
-  };
+  let totalpaySum = 0; 
+  let totalPay = 0; //급여
+  let totalBokji = 0; //복지
+  let totalSangyeo = 0; //상여
+  let totalSudang = 0; //복지수당
 
-  const indexBy = "id";
-  let totalpaySum = 3000;
-  let paySum = 400;
+  props.data.map((data)=> {
+    totalPay = totalPay + data.급여;
+    totalBokji = totalBokji + data.복지;
+    totalSangyeo = totalSangyeo + data.상여;
+    totalSudang = totalSudang + data.복지수당;
+  })
 
-  const inputdata = [
-    { [indexBy]: "2021.01" , 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.02", 급여: 300, 복지: 300, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.03", 급여: 300, 복지: 200, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.04", 급여: 300, 복지: 500, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.05" , 급여: 300, 복지: 300, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.06", 급여: 300, 복지: 200, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.07", 급여: 300, 복지: 300, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.08", 급여: 300, 복지: 200, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.09" , 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.10", 급여: 300, 복지: 240, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.11", 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.12", 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
-  ];
+  totalpaySum = totalPay + totalBokji + totalSangyeo + totalSudang
 
   const data = [
-    { [indexBy]: "급여합계" , paydata: totalpaySum },
-    { [indexBy]: "기본급합계", paydata: paySum },
+    { id: "급여합계" , paydata: totalpaySum },
+    { id: "기본급합계", paydata: totalPay },
   ];
-  
   
 const TotalLabels = ({ bars, yScale }) => {
   // space between top of stacked bars and total label
@@ -58,7 +49,7 @@ const TotalLabels = ({ bars, yScale }) => {
     // sum of all the bar values in a stacked bar
     const total = Object.keys(data)
       //f ilter out whatever your indexBy value is
-      .filter(key => key !== indexBy)
+      .filter(key => key !== "id")
       .reduce((a, key) => a + data[key], 0);
 
     return (
@@ -91,12 +82,12 @@ const TotalLabels = ({ bars, yScale }) => {
     <Box>
       <Box width="500px" height="500px" mt={3}>
         <ResponsiveBar
-         theme={{
+          theme={{
           fontSize: 16,
-         }}
+        }}
         data={data}
         keys={["paydata"]}
-        indexBy={indexBy}
+        indexBy="id"
         enableLabel={false}
         colors={['#5863fc']}
         margin={{ top: 50, right: 50, bottom: 50, left: 50 }}

@@ -73,11 +73,76 @@ export default function MonthPayList(props) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
+  let date = new Date();
   const { login, setLogin } = useContext(AppContext);
+  const [dataList, setDataList] = useState("");
+  const [titleYear, setTitleYear] = useState(date.getFullYear().toString());
 
-  const handleClick = (event) => {
-    
-  };
+  const data22 = [
+    { id: "2022.01", 급여: 600, 복지: 40, 상여: 10, 복지수당: 80 },
+    { id: "2022.02", 급여: 600, 복지: 30, 상여: null, 복지수당: 83 },
+    { id: "2022.03", 급여: 600, 복지: 20, 상여: null, 복지수당: 50 },
+    { id: "2022.04", 급여: 600, 복지: 50, 상여: null, 복지수당: 70 },
+    { id: "2022.05" , 급여: 600, 복지: 30, 상여: 50, 복지수당: 60 },
+    { id: "2022.06", 급여: 600, 복지: 20, 상여: 50, 복지수당: 80 },
+    { id: "2022.07", 급여: 600, 복지: 30, 상여: 50, 복지수당: 80 },
+    { id: "2022.08", 급여: 600, 복지: 20, 상여: 50, 복지수당: 70 },
+    { id: "2022.09" , 급여: 600, 복지: 40, 상여: 50, 복지수당: 60 },
+    { id: "2022.10", 급여: 600, 복지: 24, 상여: 50, 복지수당: 50 },
+    { id: "2022.11", 급여: 600, 복지: 40, 상여: 50, 복지수당: 80 },
+    { id: "2022.12", 급여: 600, 복지: 40, 상여: 50, 복지수당: 80 },
+  ];
+
+  const data21 = [
+    { id: "2021.01", 급여: 500, 복지: 40, 상여: null, 복지수당: 80 },
+    { id: "2021.02", 급여: 500, 복지: 30, 상여: null, 복지수당: 83 },
+    { id: "2021.03", 급여: 500, 복지: 20, 상여: null, 복지수당: 50 },
+    { id: "2021.04", 급여: 500, 복지: 50, 상여: null, 복지수당: 70 },
+    { id: "2021.05" , 급여: 500, 복지: 30, 상여: 50, 복지수당: 60 },
+    { id: "2021.06", 급여: 500, 복지: 20, 상여: 50, 복지수당: 80 },
+    { id: "2021.07", 급여: 500, 복지: 30, 상여: 50, 복지수당: 80 },
+    { id: "2021.08", 급여: 500, 복지: 20, 상여: 50, 복지수당: 70 },
+    { id: "2021.09" , 급여: 500, 복지: 40, 상여: 50, 복지수당: 60 },
+    { id: "2021.10", 급여: 500, 복지: 24, 상여: 50, 복지수당: 50 },
+    { id: "2021.11", 급여: 500, 복지: 140, 상여: 50, 복지수당: 80 },
+    { id: "2021.12", 급여: 500, 복지: 140, 상여: 50, 복지수당: 80 },
+  ];
+
+  const data20 = [
+    { id: "2020.01", 급여: 600, 복지: 40, 상여: null, 복지수당: 80 },
+    { id: "2020.02", 급여: 600, 복지: 30, 상여: null, 복지수당: 83 },
+  ];
+
+  const data19 = [
+    { id: "2019.01", 급여: 600, 복지: 40, 상여: null, 복지수당: 80 },
+    { id: "2019.02", 급여: 600, 복지: 30, 상여: null, 복지수당: 83 },
+    { id: "2019.03", 급여: 600, 복지: 40, 상여: null, 복지수당: 80 },
+    { id: "2019.04", 급여: 600, 복지: 30, 상여: null, 복지수당: 83 },
+  ];
+
+
+  useEffect(() => {
+    setDataList(data22);  
+  }, []);
+
+  const handleChangeYearList = (data) => {
+    setTitleYear(data);
+    switch (data) 
+    { 
+      case "2022":
+        return setDataList(data22);
+        break;
+      case "2021":
+        return setDataList(data21);
+        break;
+      case "2020":
+        return setDataList(data20);
+        break;
+      case "2019":
+        return setDataList(data19);
+        break;
+    }
+  }; 
 
   return (
     <Box>
@@ -93,24 +158,28 @@ export default function MonthPayList(props) {
           <BoxTitle />
         </Box>
         <Box className={classes.selectListBox}>
-          <SubTitle kind="select"/>
+          <SubTitle kind="select" handleChangeYearList={handleChangeYearList}/>
         </Box>
         <Box className={classes.legendBox}>
           <Legend />
         </Box>
-        <Box display="flex" justifyContent="center" className={classes.chartBox}>
-            <MonthLineChart />
-            <MonthPayPieChart />
+        {dataList && (
+          <Box display="flex" justifyContent="center" className={classes.chartBox}>
+            <MonthLineChart data={dataList}/>
+            <MonthPayPieChart data={dataList}/>
         </Box>
+        )}
         <Box width="1000px" margin="auto">
             <Divider className={classes.dividerPie}/>
         </Box>
         <Box className={classes.boxdivider}> </Box>
         <Box className={classes.SubTitleBox}>
-          <SubTitle kind="text" yearTitle="2021"/>
+          <SubTitle kind="text" titleYear={titleYear}/>
         </Box>
         <Box display="flex" justifyContent="center">
-            <MonthTotalLineChart />
+            {dataList && (
+              <MonthTotalLineChart data={dataList}/>
+            )}
         </Box>
         <Box width="1000px" margin="auto">
             <Divider className={classes.dividerLine}/>

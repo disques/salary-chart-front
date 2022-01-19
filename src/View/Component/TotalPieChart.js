@@ -22,30 +22,34 @@ export default function TotalPieChart(props) {
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
 
-  const handleClick = (event) => {
-    
-  };
+  let totalPay = 0; //급여
+  let totalBokji = 0; //복지
+  let totalSangyeo = 0; //상여
+  let totalSudang = 0; //복지수당
+
+  props.data.map((data)=> {
+    totalPay = totalPay + data.급여;
+    totalBokji = totalBokji + data.복지;
+    totalSangyeo = totalSangyeo + data.상여;
+    totalSudang = totalSudang + data.복지수당;
+  })
 
   let payData = [
     {
       id: "급여",
-      value: 4800,
-      color: "hsl(111, 69%, 82%)",
+      value: totalPay,
     },
     {
       id: "복지",
-      value: 833,
-      color: "hsl(220, 70%, 50%)",
+      value: totalBokji,
     },
     {
       id: "싱여",
-      value: 294,
-      color: "hsl(111, 69%, 82%)",
+      value: totalSangyeo,
     },
     {
       id: "복지수당",
-      value: 1240,
-      color: "hsl(220, 70%, 50%)",
+      value: totalSudang,
     },
   ];
 
@@ -61,7 +65,7 @@ export default function TotalPieChart(props) {
             margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
             padAngle={0.7}
             cornerRadius={3}
-            colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}   //#e3e4e8 기존 색
+            colors={['#5863fc', '#f9765d', '#ffc466', '#BCBFC9']}   //#e3e4e8 기존 색
             borderWidth={1}
             borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
             enableArcLinkLabels={true}
@@ -73,22 +77,6 @@ export default function TotalPieChart(props) {
             sliceLabelsSkipAngle={10}
             sliceLabelsTextColor="#333333"
             enableArcLinkLabels={false}
-            /*
-            legends={[
-              {
-                  anchor: 'bottom',
-                  direction: 'row',
-                  justify: false,
-                  translateX: 30,
-                  translateY: 40,
-                  itemWidth: 100,
-                  itemHeight: 20,
-                  itemsSpacing: 0,
-                  symbolSize: 20,
-                  itemDirection: 'left-to-right'
-              }
-          ]}
-          */ 
           layers={[
             'arcs',
             'arcLabels',

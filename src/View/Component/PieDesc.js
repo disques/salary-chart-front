@@ -14,6 +14,7 @@ export default function PieDesc(props) {
   const theme = useTheme();
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
+  const { titleYear } = props;
 
   const handleClick = (event) => {
     
@@ -26,7 +27,7 @@ export default function PieDesc(props) {
         fontSize="16px"
         color="#1d3c89"
       >
-        2021
+        {titleYear}
       </Box>
       <Box
         fontSize="18px"

@@ -17,18 +17,22 @@ export default function MonthTotalLineChart(props) {
   const theme = useTheme();
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
+  const {data} = props;
 
-  const test = () => {
-    return "600px";
+  const itemWidth = () => {
+    switch (data.length) 
+    { 
+      case 1 && 2:
+        return "500px";
+        break;
+      case 11 && 12:
+        return "1150px";
+        break;
+      default:
+        return "800px";
+        break;
+    }
   };
-
-  const indexBy = "id";
-
-  const data = [
-    { [indexBy]: "2021.01" , 급여: 300, 복지: 400, 상여: 500, 복지수당: 500 },
-    { [indexBy]: "2021.02", 급여: 300, 복지: 300, 상여: 500, 복지수당: 500 },
-  ];
-  
   
 const TotalLabels = ({ bars, yScale }) => {
   // space between top of stacked bars and total label
@@ -38,7 +42,7 @@ const TotalLabels = ({ bars, yScale }) => {
     // sum of all the bar values in a stacked bar
     const total = Object.keys(data)
       //f ilter out whatever your indexBy value is
-      .filter(key => key !== indexBy)
+      .filter(key => key !== "id")
       .reduce((a, key) => a + data[key], 0);
 
     return (
@@ -68,15 +72,15 @@ const TotalLabels = ({ bars, yScale }) => {
 
   return (
     <Box>
-      <Box width={test()} height="400px" mt={3} mb={5}>
+      <Box width={itemWidth()} height="400px" mt={3} mb={5}>
         <ResponsiveBar
-         theme={{
+          theme={{
           fontSize: 16,
-         }}
+        }}
         data={data}
         keys={["급여", "복지", "상여", "복지수당"]}
-        indexBy={indexBy}
-        colors={['#5863fc', '#f9765d', '#ffc466', '#929292']}
+        indexBy="id"
+        colors={['#5863fc', '#f9765d', '#ffc466', '#BCBFC9']}
         margin={{ top: 50, right: 50, bottom: 60, left: 50 }}
         labelTextColor="#f4f0f0"
         padding={0.5}

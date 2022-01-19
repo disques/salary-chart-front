@@ -29,13 +29,12 @@ const SelectFiledSet = (props) => {
 
 
   const handleChange = (event) => {
-    console.log(event.target.value);
     setmenu(event.target.value);
     dataProps(event);  //동기화위해 콜백 함수 사용
   };
 
   const dataProps = (data) => {
-    props.handleChange(data);
+    props.handleChangeYearList(data.target.value);
   };
 
   return (
