@@ -3,11 +3,9 @@ import { Box, Button, Typography } from "@material-ui/core";
 import { Link as RouterLink, useHistory } from "react-router-dom";
 import { useTheme, makeStyles } from "@material-ui/core/styles";
 import { AppContext } from "../../AppContext";
-import SelectFiledSet from "./SelectFiledSet"
+import SelectFiledSet from "./SelectFiledSet";
 
-const useStyles = makeStyles((theme) => ({
-  
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 export default function SubTitle(props) {
   const classes = useStyles();
@@ -15,44 +13,33 @@ export default function SubTitle(props) {
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
   let date = new Date();
-  const selectDatas = [
-    { title: date.getFullYear().toString(), key: date.getFullYear().toString() },
-    { title: (date.getFullYear() - 1).toString(), key: (date.getFullYear() - 1).toString() },
-    { title: (date.getFullYear() - 2).toString(), key: (date.getFullYear() - 2).toString() },
-    { title: (date.getFullYear() - 3).toString(), key: (date.getFullYear() - 3).toString() },
-  ];
 
   const handleChangeYearList = (data) => {
     props.handleChangeYearList(data);
-  }; 
-  
+  };
+
   return (
-      <Box display="flex">
-        <Box bgcolor="#1d3c89" mt="5px" width="18px" height="25px" />
-        {props.kind === "select" ?
-          <Box width="150px" ml={2}>
+    <Box display="flex">
+      <Box bgcolor="#1d3c89" mt="5px" width="18px" height="25px" />
+      {props.kind === "select" ? (
+        <Box width="150px" ml={2}>
           <SelectFiledSet
             title="날짜"
             name="txtManager"
-            selectDatas={selectDatas}
+            selectDatas={props.yearList}
             handleChangeYearList={handleChangeYearList}
-                />
-          </Box> :
-          <Box>
-            <Box 
-              ml={2} 
-              fontSize="26px"
-              color="#1d3c89"
-              fontWeight="900"
-            >
-              {`${props.titleYear}년 월별 급여내역`}
-            </Box>
-            <Box ml={2} mt={1} color="#1d3c89">
-              [ 단위 : 만원 ]
-            </Box>
+          />
+        </Box>
+      ) : (
+        <Box>
+          <Box ml={2} fontSize="26px" color="#1d3c89" fontWeight="900">
+            {`${props.titleYear}년 월별 급여내역`}
           </Box>
-          }
-      </Box>
+          <Box ml={2} mt={1} color="#1d3c89">
+            [ 단위 : 만원 ]
+          </Box>
+        </Box>
+      )}
+    </Box>
   );
 }
-
