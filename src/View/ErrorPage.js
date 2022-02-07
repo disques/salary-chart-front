@@ -10,34 +10,18 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Header(props) {
+export default function errorpage(props) {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
 
   const handleClick = (event) => {};
+  console.log("error page!" + sStorage.name + "," + sStorage.sabun);
 
   return (
-    <React.Fragment>
-      <AppBar
-        position="relative"
-        classes={{
-          root: classes.abRoot,
-        }}
-      >
-        <Box display="flex" justifyContent="center">
-          <Box
-            align="center"
-            my={4}
-            fontSize="35px"
-            color="white"
-            fontWeight="700"
-          >
-            {sStorage.name}님의 급여내역 한눈에 보기!
-          </Box>
-        </Box>
-      </AppBar>
-    </React.Fragment>
+    <Box align="center" my={4} fontSize="35px" color="black" fontWeight="700">
+      잘못된 접근입니다
+    </Box>
   );
 }

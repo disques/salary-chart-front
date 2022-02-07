@@ -66,8 +66,8 @@ export default function TotalPayList(props) {
 
   const getYearlist = async () => {
     try {
-      const data = await asyncAPI("HtmPearlAPI", "YearList", {
-        HtmPerSabun: "P1807240002",
+      const data = await asyncAPI("zone", "HtmPearlAPI", "YearList", {
+        HtmPerSabun: sStorage.sabun,
       }).catch((e) => {
         throw Error(`${e}`);
       });
@@ -90,8 +90,8 @@ export default function TotalPayList(props) {
 
   const getSalary = async (data) => {
     try {
-      const salary = await asyncAPI("HtmPearlAPI", "PastSalary", {
-        HtmPerSabun: "P1807240002",
+      const salary = await asyncAPI("zone", "HtmPearlAPI", "PastSalary", {
+        HtmPerSabun: sStorage.sabun,
         HtmType: "M",
         HtmYy: data,
       }).catch((e) => {

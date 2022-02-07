@@ -78,25 +78,18 @@ export default function MonthPayList(props) {
   const { login, setLogin } = useContext(AppContext);
   const [dataList, setDataList] = useState("");
   const [titleYear, setTitleYear] = useState(date.getFullYear().toString());
-  const [yearList, setYearList] = useState([]);
 
   const getYearlist = async () => {
     try {
-      const data = await asyncAPI("HtmPearlAPI", "YearList", {
-        HtmPerSabun: "P1807240002",
+      const data = await asyncAPI("zone", "HtmPearlAPI", "YearList", {
+        HtmPerSabun: sStorage.sabun,
       }).catch((e) => {
         throw Error(`${e}`);
       });
       let thisYy;
-      let yylist = [];
       data.map((item, idx) => {
         if (idx === 0) thisYy = item.year;
-        yylist.push({
-          title: item.year,
-          key: item.year,
-        });
       });
-      setYearList(yylist);
       setTitleYear(thisYy);
       getSalary(thisYy);
     } catch (e) {
@@ -106,8 +99,8 @@ export default function MonthPayList(props) {
 
   const getSalary = async (data) => {
     try {
-      const salary = await asyncAPI("HtmPearlAPI", "PastSalary", {
-        HtmPerSabun: "P1807240002",
+      const salary = await asyncAPI("zone", "HtmPearlAPI", "PastSalary", {
+        HtmPerSabun: sStorage.sabun,
         HtmType: "M",
         HtmYy: data,
       }).catch((e) => {
@@ -168,12 +161,15 @@ export default function MonthPayList(props) {
           <BoxTitle />
         </Box>
         <Box className={classes.selectListBox}>
-          <SubTitle
-            kind="select"
-            handleChangeYearList={handleChangeYearList}
-            yearList={yearList}
-          />
+          <SubTitle kind="text" titleYear={titleYear} />
         </Box>
+        {/*<Box className={classes.selectListBox}>*/}
+        {/*  <SubTitle*/}
+        {/*    kind="select"*/}
+        {/*    handleChangeYearList={handleChangeYearList}*/}
+        {/*    yearList={yearList}*/}
+        {/*  />*/}
+        {/*</Box>*/}
         <Box className={classes.legendBox}>
           <Legend />
         </Box>
