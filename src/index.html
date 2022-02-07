@@ -12,6 +12,7 @@
       name="description"
       content="Web site created using create-react-app"
     />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-DL4C8NKH8Q"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -22,7 +23,7 @@
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-        var agent = navigator.userAgent.toLowerCase();
+        const agent = navigator.userAgent.toLowerCase();
         if ((navigator.appName == 'Netscape' && navigator.userAgent.search('Trident') != -1) || (agent.indexOf("msie") != -1)) {
           //console.log('Internet Explorer는 호환되지 않는 브라우저 입니다.\n');
           var div = document.getElementById("root");
