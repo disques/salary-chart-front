@@ -155,6 +155,7 @@ export default function TotalPayList(props) {
             kind="select"
             handleChangeYearList={handleChangeYearList}
             yearList={yearList}
+            current={titleYear}
           />
         </Box>
         <Box className={classes.legendBox}>

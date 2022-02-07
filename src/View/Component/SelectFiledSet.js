@@ -5,7 +5,7 @@ import { Box, useMediaQuery, TextField, MenuItem } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   notchedOutline: {
     borderWidth: "3px",
-    borderColor: "#1d3c89"
+    borderColor: "#1d3c89",
   },
 
   labelRoot: {
@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "16px",
     color: "#1d3c89",
     fontWeight: 600,
-  }
+  },
 }));
 
 const SelectFiledSet = (props) => {
@@ -27,19 +27,21 @@ const SelectFiledSet = (props) => {
   const { title, required, inputWidth, SelectData, ...other } = props;
   const [menu, setmenu] = useState(props.current);
 
-
   const handleChange = (event) => {
     setmenu(event.target.value);
-    dataProps(event);  //동기화위해 콜백 함수 사용
+    dataProps(event); //동기화위해 콜백 함수 사용
   };
 
   const dataProps = (data) => {
     props.handleChangeYearList(data.target.value);
   };
 
+  useEffect(() => {
+    setmenu(props.current);
+  }, [props.current]);
+
   return (
     <Box display="flex">
-
       <Box maxWidth={inputWidth} flexGrow={1}>
         <TextField
           label={title}
@@ -51,22 +53,22 @@ const SelectFiledSet = (props) => {
           value={menu} //null을 넣으면 에러가 나지만 모양은 이쁘게 나옴
           InputProps={{
             classes: {
-              notchedOutline: classes.notchedOutline
-            }
+              notchedOutline: classes.notchedOutline,
+            },
           }}
           InputLabelProps={{
             classes: {
               root: classes.labelRoot,
-              focused: classes.labelFocused
-            }
+              focused: classes.labelFocused,
+            },
           }}
         >
           {props.selectDatas.map((selectData) => (
-            <MenuItem 
+            <MenuItem
               classes={{
                 root: classes.menuRoot,
               }}
-              key={selectData.title} 
+              key={selectData.title}
               value={selectData.key}
             >
               {selectData.title}

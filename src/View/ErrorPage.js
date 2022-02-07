@@ -17,7 +17,7 @@ export default function errorpage(props) {
   const { login, setLogin } = useContext(AppContext);
 
   const handleClick = (event) => {};
-  console.log("error page!" + sStorage.name + "," + sStorage.sabun);
+  // console.log("error page!" + sStorage.name + "," + sStorage.sabun);
 
   return (
     <Box align="center" my={4} fontSize="35px" color="black" fontWeight="700">

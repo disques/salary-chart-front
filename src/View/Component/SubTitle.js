@@ -28,6 +28,7 @@ export default function SubTitle(props) {
             name="txtManager"
             selectDatas={props.yearList}
             handleChangeYearList={handleChangeYearList}
+            current={props.current}
           />
         </Box>
       ) : (
