@@ -7,6 +7,7 @@ import { AppContext } from "../AppContext";
 const useStyles = makeStyles((theme) => ({
   abRoot: {
     backgroundColor: "#1d3c89",
+    minWidth: "1150px",
   },
 }));
 

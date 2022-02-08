@@ -6,12 +6,7 @@ import Header from "./Header";
 import MainComponent from "./Component/MainComponent";
 import MainChart from "./Pay_Chart/MainChart";
 import Pdf_Print from "./Pay_Chart/Component_Test/Pdf_Print";
-import {
-  Box,
-  Button,
-  Typography,
-  CssBaseline,
-} from "@material-ui/core";
+import { Box, Button, Typography, CssBaseline } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -19,14 +14,15 @@ const useStyles = makeStyles((theme) => ({
   body: {
     height: "100%",
     background: "#F5F5F5",
+    display: "inline-block",
   },
   footer: {
     position: "relative",
   },
   test: {
     fontSize: "40px",
-    fontFamily: "Spoqa Han Sans Neo Medium"
-  }
+    fontFamily: "Spoqa Han Sans Neo Medium",
+  },
 }));
 
 const Main = () => {
@@ -34,24 +30,22 @@ const Main = () => {
   const { login, setLogin } = useContext(AppContext);
   const { userData, setUserData } = useContext(AppContext);
 
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <React.Fragment>
-    <CssBaseline />
-    <Header />
-    <Box display="flex" justifyContent="center">
-      <main className={classes.body}>
-        <Switch>
-          <Route exact path="/" component={MainComponent} />
-          <Route exact path="/paychart" component={MainChart} />
-          <Route exact path="/test" component={Pdf_Print} />
-        </Switch>
-      </main>
-    </Box>
-  </React.Fragment>
+      <CssBaseline />
+      <Header />
+      <Box textAlign={"center"}>
+        <main className={classes.body}>
+          <Switch>
+            <Route exact path="/" component={MainComponent} />
+            <Route exact path="/paychart" component={MainChart} />
+            <Route exact path="/test" component={Pdf_Print} />
+          </Switch>
+        </main>
+      </Box>
+    </React.Fragment>
   );
 };
 export default Main;
