@@ -36,6 +36,10 @@ const SelectFiledSet = (props) => {
     props.handleChangeYearList(data.target.value);
   };
 
+  useEffect(() => {
+    setmenu(props.current);
+  }, [props.current]);
+
   return (
     <Box display="flex">
       <Box maxWidth={inputWidth} flexGrow={1}>
