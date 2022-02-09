@@ -29,20 +29,20 @@ export default function MonthPayPieChart(props) {
   let payData = [
     {
       id: "급여",
-      value: totalPay,
+      value: Math.round(totalPay / 10000),
       date: startMm,
     },
     {
       id: "복지",
-      value: totalBokji,
+      value: Math.round(totalBokji / 10000),
     },
     {
       id: "싱여",
-      value: totalSangyeo,
+      value: Math.round(totalSangyeo / 10000),
     },
     {
       id: "복지수당",
-      value: totalSudang,
+      value: Math.round(totalSudang / 10000),
     },
   ];
 

@@ -76,7 +76,8 @@ export default function MonthPayList(props) {
   const history = useHistory();
   let date = new Date();
   const { login, setLogin } = useContext(AppContext);
-  const [dataList, setDataList] = useState("");
+  const [dataList, setDataList] = useState(""); //원형그래프
+  const [dataList2, setDataList2] = useState(""); //막대그래프
   const [titleYear, setTitleYear] = useState(date.getFullYear().toString());
 
   const getYearlist = async () => {
@@ -108,6 +109,7 @@ export default function MonthPayList(props) {
       });
       // console.log("salary ", salary);
       let datayy = [];
+      let datayy2 = [];
       salary.list.map((item, idx) => {
         datayy.push({
           id: item.year + "." + item.month,
@@ -116,8 +118,16 @@ export default function MonthPayList(props) {
           상여: item.bonuspay,
           복지수당: item.overtimepay,
         });
+        datayy2.push({
+          id: item.year + "." + item.month,
+          급여: Math.round(item.basepay / 10000),
+          복지: Math.round(item.welfarepay / 10000),
+          상여: Math.round(item.bonuspay / 10000),
+          복지수당: Math.round(item.overtimepay / 10000),
+        });
       });
       setDataList(datayy);
+      setDataList2(datayy2);
     } catch (e) {
       console.log(e);
     }
@@ -191,7 +201,7 @@ export default function MonthPayList(props) {
           <SubTitle kind="text" titleYear={titleYear} />
         </Box>
         <Box display="flex" justifyContent="center">
-          {dataList && <MonthTotalLineChart data={dataList} />}
+          {dataList2 && <MonthTotalLineChart data={dataList2} />}
         </Box>
         <Box width="1000px" margin="auto">
           <Divider className={classes.dividerLine} />
