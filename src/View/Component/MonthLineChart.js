@@ -41,6 +41,11 @@ export default function MonthLineChart(props) {
   const TotalLabels = ({ bars, yScale }) => {
     // space between top of stacked bars and total label
     const labelMargin = 60;
+    function formatNumber(number) {
+      const parts = number.toString().split(".");
+      parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      return parts.join(".");
+    }
 
     return bars.map(({ data: { data, indexValue }, x, width }, i) => {
       // sum of all the bar values in a stacked bar
@@ -68,7 +73,8 @@ export default function MonthLineChart(props) {
               fontWeight: "800",
             }}
           >
-            {total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
+            {/*{total.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}*/}
+            {formatNumber(total)}
             만원
           </text>
         </g>
