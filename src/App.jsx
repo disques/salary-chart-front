@@ -18,40 +18,12 @@ import Main from "./View/Main";
 import queryString from "querystring";
 import { asyncAPI } from "./Common/Common";
 import ErrorPage from "./View/ErrorPage";
+import CheckPage from "./View/Check";
 
 const App = (props) => {
   const [login, setLogin] = useState(false);
   const [userData, setUserData] = useState(null);
-  const getPerData = async (key) => {
-    try {
-      const data = await asyncAPI("jan", "HtmPearlAPI", "PerData", {
-        HtmKey: key,
-      }).catch((e) => {
-        throw Error(`${e}`);
-      });
-      if (data.result != null) {
-        sStorage.setItem("login", "false");
-        sStorage.setItem("zone", "");
-        sStorage.setItem("sabun", "");
-        sStorage.setItem("name", "");
-        setLogin(false);
-        alert("로그인 정보가 잘못되었습니다.");
-      } else {
-        sStorage.setItem("login", "true");
-        sStorage.setItem("zone", data.zone);
-        sStorage.setItem("sabun", data.sabun);
-        sStorage.setItem("name", data.name);
-        setLogin(true);
-      }
-    } catch (e) {
-      console.log(e);
-    }
-  };
-  useEffect(() => {
-    const parameter = props.location.search.replace("?", "");
-    const query = queryString.parse(parameter);
-    getPerData(query.key);
-  });
+  useEffect(() => {});
   return (
     <AppContextProvider
       login={login}
@@ -60,7 +32,10 @@ const App = (props) => {
       setUserData={setUserData}
     >
       <CssBaseline />
-      {login ? <Main /> : <ErrorPage />}
+      {/*{login ? <Main /> : <ErrorPage />}*/}
+      <Route path="/" component={CheckPage} />
+      <Route path="/chart" component={Main} />
+      <Route path="/fail" component={ErrorPage} />
     </AppContextProvider>
   );
 };

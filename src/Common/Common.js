@@ -33,7 +33,7 @@ window.sStorage =
     return fn;
   })();
 
-export const APIRequest = (Model, CMD, addParams) => {
+export const APIRequest = (zone, Model, CMD, addParams) => {
   return new Promise((resolve, reject) => {
     let params = {
       Model: Model,
@@ -44,7 +44,7 @@ export const APIRequest = (Model, CMD, addParams) => {
     }
     axios({
       method: "POST",
-      url: "https://jan.himgt.net/servlets/HtmMaster?TypeM=EzF4gbVc9",
+      url: "https://" + zone + ".himgt.net/servlets/HtmMaster?TypeM=EzF4gbVc9",
       // url: "https://dbhan.himgt.net/servlets/HtmMaster?TypeM=EzF4gbVc9",
       params: params,
       headers: {

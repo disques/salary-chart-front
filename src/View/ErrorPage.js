@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Box, Button, Typography, AppBar } from "@material-ui/core";
-import { Link as RouterLink, useHistory } from "react-router-dom";
+import { Link as RouterLink, useHistory, withRouter } from "react-router-dom";
 import { useTheme, makeStyles } from "@material-ui/core/styles";
 import { AppContext } from "../AppContext";
 
@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function errorpage(props) {
+const ErrorPage = (props) => {
   const classes = useStyles();
   const theme = useTheme();
   const history = useHistory();
@@ -24,4 +24,5 @@ export default function errorpage(props) {
       잘못된 접근입니다
     </Box>
   );
-}
+};
+export default withRouter(ErrorPage);

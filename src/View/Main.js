@@ -1,5 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link as RouterLink, Route, Switch } from "react-router-dom";
+import {
+  Link as RouterLink,
+  Route,
+  Switch,
+  withRouter,
+} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppContext } from "../AppContext";
 import Header from "./Header";
@@ -39,7 +44,7 @@ const Main = () => {
       <Box textAlign={"center"}>
         <main className={classes.body}>
           <Switch>
-            <Route exact path="/" component={MainComponent} />
+            <Route exact path="/chart" component={MainComponent} />
             <Route exact path="/paychart" component={MainChart} />
             <Route exact path="/test" component={Pdf_Print} />
           </Switch>
@@ -48,4 +53,4 @@ const Main = () => {
     </React.Fragment>
   );
 };
-export default Main;
+export default withRouter(Main);
