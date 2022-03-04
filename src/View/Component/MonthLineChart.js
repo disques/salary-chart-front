@@ -22,13 +22,13 @@ export default function MonthLineChart(props) {
   let totalPay = 0; //급여
   let totalBokji = 0; //복지
   let totalSangyeo = 0; //상여
-  let totalSudang = 0; //복지수당
+  let totalSudang = 0; //연장수당
 
   props.data.map((data) => {
     totalPay = totalPay + data.급여;
     totalBokji = totalBokji + data.복지;
     totalSangyeo = totalSangyeo + data.상여;
-    totalSudang = totalSudang + data.복지수당;
+    totalSudang = totalSudang + data.연장수당;
   });
 
   totalpaySum = totalPay + totalBokji + totalSangyeo + totalSudang;
@@ -97,6 +97,7 @@ export default function MonthLineChart(props) {
           margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
           padding={0.3}
           axisLeft={null}
+          valueFormat={(value) => `${Number(value) > 0 ? value : ""} `}
           // add TotalLabels after bars
           layers={["axes", "bars", TotalLabels, "markers", "legends"]}
         />

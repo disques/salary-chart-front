@@ -116,14 +116,14 @@ export default function MonthPayList(props) {
           급여: item.basepay,
           복지: item.welfarepay,
           상여: item.bonuspay,
-          복지수당: item.overtimepay,
+          연장수당: item.overtimepay,
         });
         datayy2.push({
           id: item.year + "." + item.month,
           급여: Math.round(item.basepay / 10000),
           복지: Math.round(item.welfarepay / 10000),
           상여: Math.round(item.bonuspay / 10000),
-          복지수당: Math.round(item.overtimepay / 10000),
+          연장수당: Math.round(item.overtimepay / 10000),
         });
       });
       setDataList(datayy);

@@ -31,7 +31,7 @@ export default function TotalPieChart(props) {
     totalPay = totalPay + data.급여;
     totalBokji = totalBokji + data.복지;
     totalSangyeo = totalSangyeo + data.상여;
-    totalSudang = totalSudang + data.복지수당;
+    totalSudang = totalSudang + data.연장수당;
   });
 
   let payData = [
@@ -48,7 +48,7 @@ export default function TotalPieChart(props) {
       value: Math.round(totalSangyeo / 10000),
     },
     {
-      id: "복지수당",
+      id: "연장수당",
       value: Math.round(totalSudang / 10000),
     },
   ];

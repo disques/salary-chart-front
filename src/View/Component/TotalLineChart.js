@@ -82,13 +82,14 @@ export default function TotalLineChart(props) {
             fontSize: 16,
           }}
           data={data}
-          keys={["급여", "복지", "상여", "복지수당"]}
+          keys={["급여", "복지", "상여", "연장수당"]}
           colors={["#5863fc", "#f9765d", "#ffc466", "#BCBFC9"]}
           labelTextColor="#f4f0f0"
           indexBy="id"
           margin={{ top: 50, right: 20, bottom: 50, left: 20 }}
           padding={0.4}
           axisLeft={null}
+          valueFormat={(value) => `${Number(value) > 0 ? value : ""} `}
           // add TotalLabels after bars
           layers={["axes", "bars", TotalLabels, "markers", "legends"]}
         />

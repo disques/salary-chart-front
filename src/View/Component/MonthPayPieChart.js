@@ -16,14 +16,14 @@ export default function MonthPayPieChart(props) {
   let totalPay = 0; //급여
   let totalBokji = 0; //복지
   let totalSangyeo = 0; //상여
-  let totalSudang = 0; //복지수당
+  let totalSudang = 0; //연장수당
   let startMm = props.data[0].id; //해당년도의 가장 첫번째 월
 
   props.data.map((data) => {
     totalPay = totalPay + data.급여;
     totalBokji = totalBokji + data.복지;
     totalSangyeo = totalSangyeo + data.상여;
-    totalSudang = totalSudang + data.복지수당;
+    totalSudang = totalSudang + data.연장수당;
   });
 
   let payData = [
@@ -41,7 +41,7 @@ export default function MonthPayPieChart(props) {
       value: Math.round(totalSangyeo / 10000),
     },
     {
-      id: "복지수당",
+      id: "연장수당",
       value: Math.round(totalSudang / 10000),
     },
   ];
