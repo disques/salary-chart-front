@@ -75,11 +75,14 @@ export default function TotalPayList(props) {
       let thisYy;
       let yylist = [];
       data.map((item, idx) => {
-        if (idx === 0) thisYy = item.year;
-        yylist.push({
-          title: item.year,
-          key: item.year,
-        });
+        //당해년 데이터 제외
+        if (idx !== 0) {
+          if (idx === 1) thisYy = item.year;
+          yylist.push({
+            title: item.year,
+            key: item.year,
+          });
+        }
       });
       setYearList(yylist);
       setTitleYear(thisYy);

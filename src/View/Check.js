@@ -7,7 +7,7 @@ const CheckPage = (props) => {
     let url = new URL(location.href);
     let urlParam = url.searchParams;
     let key = urlParam.get("key");
-    if (key !== "") {
+    if (key !== null) {
       APIRequest("jan", "HtmPearlAPI", "PerData", {
         HtmKey: key,
       })
@@ -45,6 +45,15 @@ const CheckPage = (props) => {
           });
           // console.log(err);
         });
+    } else if (sStorage.getItem("login") !== "true") {
+      sStorage.setItem("login", "false");
+      sStorage.setItem("zone", "");
+      sStorage.setItem("sabun", "");
+      sStorage.setItem("name", "");
+      alert("로그인 정보가 잘못되었습니다.");
+      props.history.push({
+        pathname: "/fail",
+      });
     }
   }, []);
   return <div></div>;

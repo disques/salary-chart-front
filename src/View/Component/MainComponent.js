@@ -6,9 +6,7 @@ import { AppContext } from "../../AppContext";
 import TotalPayList from "./TotalPayList";
 import MonthPayList from "./MonthPayList";
 
-const useStyles = makeStyles((theme) => ({
-  
-}));
+const useStyles = makeStyles((theme) => ({}));
 
 export default function MainComponent(props) {
   const classes = useStyles();
@@ -16,15 +14,12 @@ export default function MainComponent(props) {
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
 
-  const handleClick = (event) => {
-    
-  };
+  const handleClick = (event) => {};
 
   return (
     <Box>
-      <TotalPayList />
       <MonthPayList />
+      <TotalPayList />
     </Box>
   );
 }
-
