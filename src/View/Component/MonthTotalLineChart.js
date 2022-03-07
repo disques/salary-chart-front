@@ -88,6 +88,7 @@ export default function MonthTotalLineChart(props) {
           labelTextColor="#f4f0f0"
           padding={0.5}
           axisLeft={null}
+          valueFormat={(value) => `${Number(value) > 0 ? value : ""} `}
           // add TotalLabels after bars
           layers={["axes", "bars", TotalLabels, "markers", "legends"]}
         />
