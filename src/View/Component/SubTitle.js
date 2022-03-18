@@ -24,7 +24,7 @@ export default function SubTitle(props) {
       {props.kind === "select" ? (
         <Box width="150px" ml={2}>
           <SelectFiledSet
-            title="날짜"
+            title="년도"
             name="txtManager"
             selectDatas={props.yearList}
             handleChangeYearList={handleChangeYearList}
