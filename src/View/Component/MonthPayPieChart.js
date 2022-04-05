@@ -30,7 +30,7 @@ export default function MonthPayPieChart(props) {
     {
       id: "급여",
       value: Math.round(totalPay / 10000),
-      date: startMm,
+      // date: startMm,
     },
     {
       id: "복지",
@@ -58,7 +58,7 @@ export default function MonthPayPieChart(props) {
           margin={{ top: 20, right: 30, bottom: 30, left: 20 }}
           padAngle={0.7}
           cornerRadius={3}
-          colors={["#5863fc", "#f9765d", "#ffc466", "#BCBFC9"]}
+          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]}
           borderWidth={1}
           borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
           arcLabelsTextColor="#ffffff"
@@ -68,6 +68,26 @@ export default function MonthPayPieChart(props) {
           sliceLabelsSkipAngle={10}
           sliceLabelsTextColor="#333333"
           enableArcLinkLabels={false}
+          tooltip={({ datum: { id, value, color } }) => (
+              <div
+                  style={{
+                    padding: "12px",
+                    background: "#ffffff",
+                    border: "1px solid #E6E6E6"
+                  }}
+              >
+                <Box display="flex">
+                  <Box width="15px" height="15px" bgcolor={color} />&nbsp;
+                  <Box>
+                    {id} :
+                    <strong>
+                      {value}만원
+                    </strong>
+                  </Box>
+                </Box>
+
+              </div>
+          )}
           layers={[
             "arcs",
             "arcLabels",

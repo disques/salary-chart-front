@@ -34,8 +34,8 @@ export default function MonthLineChart(props) {
   totalpaySum = totalPay + totalBokji + totalSangyeo + totalSudang;
 
   const data = [
-    { id: "급여합계", paydata: Math.round(totalpaySum / 10000) },
-    { id: "기본급합계", paydata: Math.round(totalPay / 10000) },
+    { id: "급여합계", 합계: Math.round(totalpaySum / 10000) },
+    { id: "기본급합계", 합계: Math.round(totalPay / 10000) },
   ];
 
   const TotalLabels = ({ bars, yScale }) => {
@@ -90,7 +90,7 @@ export default function MonthLineChart(props) {
             fontSize: 16,
           }}
           data={data}
-          keys={["paydata"]}
+          keys={["합계"]}
           indexBy="id"
           enableLabel={false}
           colors={["#5863fc"]}
@@ -100,6 +100,27 @@ export default function MonthLineChart(props) {
           valueFormat={(value) => `${Number(value) > 0 ? value : ""} `}
           // add TotalLabels after bars
           layers={["axes", "bars", TotalLabels, "markers", "legends"]}
+          tooltip={({ id, value, color, indexValue}) => (
+              <div
+                  style={{
+                    padding: "12px",
+                    background: "#ffffff",
+                    border: "1px solid #E6E6E6"
+                  }}
+              >
+                <Box display="flex">
+                  <Box
+                      width="15px" height="15px" bgcolor={color} />&nbsp;
+                  <Box>
+                    {indexValue} :
+                    <strong>
+                      {value}만원
+                    </strong>
+                  </Box>
+                </Box>
+
+              </div>
+          )}
         />
       </Box>
     </Box>

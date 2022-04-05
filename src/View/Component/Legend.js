@@ -37,13 +37,13 @@ export default function Legend(props) {
             </Box>
           </Box>
           <Box display="flex" ml={4}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#ffc466" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#ffb342" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               상여
             </Box>
           </Box>
           <Box display="flex" ml={4}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#BCBFC9" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#40bfb7" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               연장수당
             </Box>
@@ -64,13 +64,13 @@ export default function Legend(props) {
             </Box>
           </Box>
           <Box display="flex" mt={2}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#ffc466" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#ffb342" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               상여
             </Box>
           </Box>
           <Box display="flex" mt={2}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#BCBFC9" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#40bfb7" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               연장수당
             </Box>

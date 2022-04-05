@@ -83,7 +83,7 @@ export default function MonthTotalLineChart(props) {
           data={data}
           keys={["급여", "복지", "상여", "연장수당"]}
           indexBy="id"
-          colors={["#5863fc", "#f9765d", "#ffc466", "#BCBFC9"]}
+          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]}
           margin={{ top: 50, right: 50, bottom: 60, left: 50 }}
           labelTextColor="#f4f0f0"
           padding={0.5}
@@ -91,6 +91,26 @@ export default function MonthTotalLineChart(props) {
           valueFormat={(value) => `${Number(value) > 0 ? value : ""} `}
           // add TotalLabels after bars
           layers={["axes", "bars", TotalLabels, "markers", "legends"]}
+          tooltip={({ id, value, color, indexValue}) => (
+              <div
+                  style={{
+                    padding: "12px",
+                    background: "#ffffff",
+                    border: "1px solid #E6E6E6"
+                  }}
+              >
+                <Box display="flex">
+                  <Box width="15px" height="15px" bgcolor={color} />&nbsp;
+                  <Box>
+                    {id} - {indexValue} :
+                    <strong>
+                      {value}만원
+                    </strong>
+                  </Box>
+                </Box>
+
+              </div>
+          )}
         />
       </Box>
     </Box>

@@ -65,7 +65,7 @@ export default function TotalPieChart(props) {
           margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
           padAngle={0.7}
           cornerRadius={3}
-          colors={["#5863fc", "#f9765d", "#ffc466", "#BCBFC9"]} //#e3e4e8 기존 색
+          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]} //#e3e4e8 기존 색
           borderWidth={1}
           borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
           enableArcLinkLabels={true}
@@ -77,6 +77,26 @@ export default function TotalPieChart(props) {
           sliceLabelsSkipAngle={10}
           sliceLabelsTextColor="#333333"
           enableArcLinkLabels={false}
+          tooltip={({ datum: { id, value, color } }) => (
+              <div
+                  style={{
+                    padding: "12px",
+                    background: "#ffffff",
+                    border: "1px solid #E6E6E6"
+                  }}
+              >
+                <Box display="flex">
+                  <Box width="15px" height="15px" bgcolor={color} />&nbsp;
+                  <Box>
+                    {id} :
+                    <strong>
+                      {value}만원
+                    </strong>
+                  </Box>
+                </Box>
+
+              </div>
+          )}
           layers={[
             "arcs",
             "arcLabels",
