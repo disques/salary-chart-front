@@ -65,7 +65,7 @@ export default function TotalPieChart(props) {
           margin={{ top: 20, right: 30, bottom: 20, left: 20 }}
           padAngle={0.7}
           cornerRadius={3}
-          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]} //#e3e4e8 기존 색
+          colors={["#313D77", "#5863FC", "#FFC466", "#F9765D"]} //#e3e4e8 기존 색
           borderWidth={1}
           borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
           enableArcLinkLabels={true}

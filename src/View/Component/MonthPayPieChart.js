@@ -58,7 +58,7 @@ export default function MonthPayPieChart(props) {
           margin={{ top: 20, right: 30, bottom: 30, left: 20 }}
           padAngle={0.7}
           cornerRadius={3}
-          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]}
+          colors={["#313D77", "#5863FC", "#FFC466", "#F9765D"]}
           borderWidth={1}
           borderColor={{ from: "color", modifiers: [["darker", 0.2]] }}
           arcLabelsTextColor="#ffffff"

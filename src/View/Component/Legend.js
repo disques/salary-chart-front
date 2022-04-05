@@ -20,7 +20,7 @@ export default function Legend(props) {
       {props.data === "true" ? (
         <Box display="flex">
           <Box display="flex">
-            <Box mt="2px" width="20px" height="20px" bgcolor="#5863fc" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#313D77" />
             <Box
               ml={2}
               fontSize="18px"
@@ -31,19 +31,19 @@ export default function Legend(props) {
             </Box>
           </Box>
           <Box display="flex" ml={4}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#f9765d" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#5863FC" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               복지
             </Box>
           </Box>
           <Box display="flex" ml={4}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#ffb342" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#FFC466" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               상여
             </Box>
           </Box>
           <Box display="flex" ml={4}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#40bfb7" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#F9765D" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               연장수당
             </Box>
@@ -52,25 +52,25 @@ export default function Legend(props) {
       ) : (
         <Box>
           <Box display="flex">
-            <Box mt="2px" width="20px" height="20px" bgcolor="#5863fc" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#313D77" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               급여
             </Box>
           </Box>
           <Box display="flex" mt={2}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#f9765d" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#5863FC" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               복지
             </Box>
           </Box>
           <Box display="flex" mt={2}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#ffb342" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#FFC466" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               상여
             </Box>
           </Box>
           <Box display="flex" mt={2}>
-            <Box mt="2px" width="20px" height="20px" bgcolor="#40bfb7" />
+            <Box mt="2px" width="20px" height="20px" bgcolor="#F9765D" />
             <Box ml={2} fontSize="18px" color="#1d3c89">
               연장수당
             </Box>

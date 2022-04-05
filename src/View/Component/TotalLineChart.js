@@ -83,7 +83,7 @@ export default function TotalLineChart(props) {
           }}
           data={data}
           keys={["급여", "복지", "상여", "연장수당"]}
-          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]}
+          colors={["#313D77", "#5863FC", "#FFC466", "#F9765D"]}
           labelTextColor="#f4f0f0"
           indexBy="id"
           margin={{ top: 50, right: 20, bottom: 50, left: 20 }}

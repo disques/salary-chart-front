@@ -83,7 +83,7 @@ export default function MonthTotalLineChart(props) {
           data={data}
           keys={["급여", "복지", "상여", "연장수당"]}
           indexBy="id"
-          colors={["#5863fc", "#f9765d", "#ffb342", "#40bfb7"]}
+          colors={["#313D77", "#5863FC", "#FFC466", "#F9765D"]}
           margin={{ top: 50, right: 50, bottom: 60, left: 50 }}
           labelTextColor="#f4f0f0"
           padding={0.5}

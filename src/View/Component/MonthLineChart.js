@@ -93,7 +93,7 @@ export default function MonthLineChart(props) {
           keys={["합계"]}
           indexBy="id"
           enableLabel={false}
-          colors={["#5863fc"]}
+          colors={["#313D77"]}
           margin={{ top: 50, right: 50, bottom: 50, left: 50 }}
           padding={0.3}
           axisLeft={null}
