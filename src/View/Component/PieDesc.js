@@ -15,26 +15,28 @@ export default function PieDesc(props) {
   const history = useHistory();
   const { login, setLogin } = useContext(AppContext);
   const { titleYear } = props;
+  const { totalPay } = props;
 
   const handleClick = (event) => {
     
   };
 
+    function formatNumber(number) {
+        const parts = number.toString().split(".");
+        parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return parts.join(".");
+    }
+
   return (
     <Box>
       <Box
         display="flex" justifyContent="center"
-        fontSize="16px"
+        fontSize="25px"
         color="#1d3c89"
       >
-        {titleYear}
-      </Box>
-      <Box
-        fontSize="18px"
-        color="#1d3c89"
-        fontWeight="bold"
-      >
-        총지급액 합계
+          <div>
+              {titleYear} <strong>총지급액 합계</strong> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <strong>{formatNumber(totalPay)} 원</strong>
+          </div>
       </Box>
     </Box>
     

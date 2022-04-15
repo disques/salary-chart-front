@@ -63,6 +63,7 @@ export default function TotalPayList(props) {
   const [dataList, setDataList] = useState(""); //원형그래프
   const [dataList2, setDataList2] = useState(""); //막대그래프
   const [titleYear, setTitleYear] = useState(date.getFullYear().toString());
+  const [totalPay, setTotalPay] = useState(0); //합계
   const [yearList, setYearList] = useState([]);
 
   const getYearlist = async () => {
@@ -104,6 +105,7 @@ export default function TotalPayList(props) {
       // console.log("salary ", salary);
       let datayy = [];
       let datayy2 = [];
+      let datatotal = 0;
       salary.list.map((item, idx) => {
         datayy.push({
           id: item.year + "." + item.month,
@@ -119,9 +121,11 @@ export default function TotalPayList(props) {
           상여: Math.round(item.bonuspay / 10000),
           연장수당: Math.round(item.overtimepay / 10000),
         });
+        datatotal += item.basepay + item.welfarepay + item.bonuspay + item.overtimepay;
       });
       setDataList(datayy);
       setDataList2(datayy2);
+      setTotalPay(datatotal);
     } catch (e) {
       console.log(e);
     }
@@ -181,7 +185,7 @@ export default function TotalPayList(props) {
           <Divider className={classes.divider} />
         </Box>
         <Box mt={3} display="flex" justifyContent="center">
-          <PieDesc titleYear={titleYear} />
+          <PieDesc titleYear={titleYear} totalPay={totalPay} />
         </Box>
         <Box mt={5} className={classes.boxdivider}>
           {" "}

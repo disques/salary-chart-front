@@ -113,7 +113,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
         fontWeight: "600",
       }}
     >
-      <tspan x="172" dy="-1.8em" fill="#1d3c89">
+      <tspan x="172" dy="-1.4em" fill="#1d3c89">
         급여
       </tspan>
       <tspan x="172" dy="1.2em" fill="#1d3c89">
@@ -132,7 +132,7 @@ const CenteredMetric = ({ dataWithArc, centerX, centerY }) => {
       </tspan>
       <tspan
         x="172"
-        dy="2.4em"
+        dy="1.8em"
         style={{
           fontSize: "15px",
           fontWeight: "600",
