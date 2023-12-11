@@ -17,16 +17,22 @@ export default function MonthTotalLineChart(props) {
   const { data } = props;
 
   const itemWidth = () => {
+    // 12월까지있을때를 기준으로 막대그래프끼리의 간격을 맞춰달라함 23.12.11 선희
     switch (data.length) {
-      case 1 && 2:
+      case 1:
+        return "300px";
+      case 2:
+      case 3:
         return "500px";
-        break;
-      case 11 && 12:
+      case 8:
+      case 9:
+        return "1000px";
+      case 10:
+      case 11:
+      case 12:
         return "1150px";
-        break;
       default:
         return "800px";
-        break;
     }
   };
 
@@ -86,30 +92,27 @@ export default function MonthTotalLineChart(props) {
           colors={["#313D77", "#5863FC", "#FFC466", "#F9765D"]}
           margin={{ top: 50, right: 50, bottom: 60, left: 50 }}
           labelTextColor="#f4f0f0"
-          padding={0.5}
+          padding={0.4}
           axisLeft={null}
           valueFormat={(value) => `${Number(value) > 0 ? value : ""} `}
           // add TotalLabels after bars
           layers={["axes", "bars", TotalLabels, "markers", "legends"]}
-          tooltip={({ id, value, color, indexValue}) => (
-              <div
-                  style={{
-                    padding: "12px",
-                    background: "#ffffff",
-                    border: "1px solid #E6E6E6"
-                  }}
-              >
-                <Box display="flex">
-                  <Box width="15px" height="15px" bgcolor={color} />&nbsp;
-                  <Box>
-                    {id} - {indexValue} :
-                    <strong>
-                      {value}만원
-                    </strong>
-                  </Box>
+          tooltip={({ id, value, color, indexValue }) => (
+            <div
+              style={{
+                padding: "12px",
+                background: "#ffffff",
+                border: "1px solid #E6E6E6",
+              }}
+            >
+              <Box display="flex">
+                <Box width="15px" height="15px" bgcolor={color} />
+                &nbsp;
+                <Box>
+                  {id} - {indexValue} :<strong>{value}만원</strong>
                 </Box>
-
-              </div>
+              </Box>
+            </div>
           )}
         />
       </Box>
